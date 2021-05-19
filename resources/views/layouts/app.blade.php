@@ -2,8 +2,15 @@
 <a href="/">Home Page</a>
 <a href="/menu">Menu Page</a>
 <a href="/cart">Cart Page</a>
-<a href="/login">Login Page</a>
-<a href="/register">Register Page</a>
+@auth
+    <a href="#">My Orders</a>
+    <a href="#">Dashboard</a>
+    <a href={{ route('logout') }}>Logout</a>
+@endauth
+@guest
+    <a href={{ route('login') }}>Login Page</a>
+    <a href={{ route('register') }}>Register Page</a>
+@endguest
 
 <hr>
 @yield('content')
