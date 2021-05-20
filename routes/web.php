@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'index')->name('index');
 
 //Menu page
-// Route::get('/menu', [MenuController::class, 'index']);
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/product/{id}', [MenuController::class, 'indexProduct']);
 
 //Cart page
-Route::view('/cart', 'cart');
+Route::prefix('cart')->group(function() {
+    Route::get('/', [CartController::class, 'indexCart'])->name('cart');
+    Route::post('/add', [CartController::class, 'addCart'])->name('cart.add');
+    Route::post('/del', [CartController::class, 'delCart'])->name('cart.del');
+    Route::get('/delall', [CartController::class, 'delAllCart'])->name('cart.delall');
+});
 
 //Auth pages
 Route::get('/login', [AuthController::class, 'indexLogin'])->name('login');
@@ -29,3 +37,5 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/register', [AuthController::class, 'indexRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/test', [CartController::class, 'test']);
