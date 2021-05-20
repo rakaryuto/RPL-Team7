@@ -10,11 +10,11 @@
 <body>
     <h2>Navbar</h2>
     <a href="/">Home Page</a>
-    <a href="/menu">Menu Page</a>
-    <a href="/cart">Cart Page</a>
+    <a href={{ route('menu') }}>Menu Page</a>
+    <a href={{ route('cart') }}>Cart Page</a>
     @auth
-        <a href="#">My Orders</a>
-        <a href="#">Dashboard</a>
+        <a href={{ route('myOrders') }}>My Orders</a>
+        <a href={{ route('dashboard') }}>Dashboard</a>
         <a href={{ route('logout') }}>Logout</a>
     @endauth
     @guest
