@@ -31,4 +31,5 @@
             </div>
         </div>
     </form>
+    Already have an account? <a href={{ route('login') }}>Login here!</a>
 @endsection

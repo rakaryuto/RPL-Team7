@@ -3,6 +3,10 @@
 @section('content')
     <h1>Login Page</h1>
 
+    @if ( session()->has('fail') )
+        <div style="color: red">{{ session()->get('fail') }}</div>
+    @endif
+
     <form action="{{ route('auth.login') }}" method="POST">
         @csrf
         <div>
@@ -26,4 +30,5 @@
             </div>
         </div>
     </form>
+    Dont have an account? <a href={{ route('register') }}>Register here!</a>
 @endsection
