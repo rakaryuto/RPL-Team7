@@ -66,7 +66,7 @@
 {{-- Quantity --}}
     <div>
         <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" id="quantity" min="1" max="5">
+        <input type="number" name="quantity" id="quantity" min="1" max="5" required>
     </div>
 
     <button type="submit">Add To Cart</button>
