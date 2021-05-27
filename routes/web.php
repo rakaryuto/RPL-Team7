@@ -24,7 +24,7 @@ Route::get('/home', function () { return redirect()->route('index'); })->name('h
 //Menu pages
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/product/{id}', [MenuController::class, 'indexProduct']);
-Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
+Route::get('/checkout', [MenuController::class, 'checkout'])->name('checkout');
 
 //Cart pages
 Route::prefix('cart')->group(function() {
@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::post('/dashboard', [UserController::class, 'profile'])->name('profile');
     Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
-    Route::post('/checkout', [UserController::class, 'checkout'])->name('user.checkout');
+    Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
 });
 
 Route::get('/test', [CartController::class, 'test']);

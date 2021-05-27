@@ -7,9 +7,9 @@
     @endif
 
     @if ( session()->has('cart') )
-        @for($i=0;$i<$products->count();$i++)   @if(session()->has('cart.'.$i))
-        <div style="border: 1px solid black; padding: 1em">
-            <h2>
+        @for($i=0;$i<=$products->count();$i++)   @if(session()->has('cart.'.$i))
+        <div style="border: 1px solid black; padding: .5em;">
+            <h2 style="margin: 0;">
                 {{ $coffee->where('id', $products->where('id', $i)->first()->coffee_id)->first()->nama }}
                 @if ($products->where('id', $i)->first()->extrashot)
                     With Extra Shot
@@ -30,7 +30,7 @@
 
         
         <div style="margin: 1em 0">
-            <a href="#">Checkout</a>
+            <a href={{ route('checkout') }}>Checkout</a>
         </div>
         <div style="margin: 1em 0">
             <a href={{ route('cart.delall') }}>Clear Cart</a>

@@ -23,6 +23,9 @@
             @if (Auth::user()->alamat)
             <div>{{ Auth::user()->alamat }}</div>
             @endif
+            @if (Auth::user()->ongkir)
+            <div>Ongkos Kirim ke Alamat : Rp. {{ Auth::user()->ongkir }},-</div>
+            @endif
 
             <div>
                 <select name="jabodetabek" id="jabodetabek">
