@@ -52,6 +52,9 @@ class CartController extends Controller
 
     public function delCart(Request $request) {
         session()->forget('cart.'.$request->delete);
+        if (!session()->get('cart')) {
+            session()->forget('cart');
+        }
         return redirect()->route('cart')->with('success', 'Item berhasil dihapus');
     }
 
