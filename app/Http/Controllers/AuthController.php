@@ -57,6 +57,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'whatsapp' => '',
             'alamat' => '',
+            'ongkir' => '',
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {

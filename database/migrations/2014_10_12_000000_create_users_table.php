@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('whatsapp')->nullable();
             $table->text('alamat')->nullable();
+            $table->string('ongkir')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });

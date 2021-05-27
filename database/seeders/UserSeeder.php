@@ -19,16 +19,18 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@ittoday.id',
             'password' => Hash::make('admin123'),
-            'whatsapp' => '',
-            'alamat' => '',
+            'whatsapp' => '089608703393',
+            'alamat' => 'Kota1 Ciampea Benteng Jl. Dadali Blok G11 BTN Puskopad 16620',
+            'ongkir' => 5000,
         ]);
 
         User::create([
             'name' => 'test',
             'email' => 'test@example.com',
             'password' => Hash::make('test123'),
-            'whatsapp' => '',
-            'alamat' => '',
+            'whatsapp' => '089876543210',
+            'alamat' => null,
+            'ongkir' => null,
         ]);
     }
 }
