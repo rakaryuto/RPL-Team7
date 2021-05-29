@@ -14,11 +14,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('head')
 
-    {{-- <!-- Owl Carousel -->
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> --}}
-
-
     <title>@yield('title','Kopikimo')</title>
 </head>
 
@@ -26,7 +21,7 @@
     <header class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="{{ route('index') }}" class="navbar-brand">
-                <img src="Asset/S__7421961-removebg 1.svg" alt="logo" srcset="">
+                <img src="{{ asset('asset/logo-brand.svg') }}" alt="logo" srcset="">
             </a>
             <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -63,21 +58,24 @@
 
             <div class="nav-right collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav text-center">
-                    <li class="nav-item ">
-                        <a href="{{ route('cart') }}" class="nav-link"><img src="Asset/Vector.svg" alt="" srcset=""></a>
+                    <li class="nav-item">
+                        <a href="{{ route('cart') }}" class="nav-link"><img src="{{ asset('asset/Vector.svg') }}" alt="" srcset=""></a>
                     </li>
                     @guest
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link">LOG IN</a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a href="{{ route('register') }}" class="nav-link">REGISTER</a>
                     </li>
                     @endguest
                     @auth
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a href="{{ route('dashboard') }}" class="nav-link">{{ ucwords(Auth::user()->name) }}'s
                             Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link">LOG OUT</a>
                     </li>
                     @endauth
                 </ul>
@@ -97,41 +95,4 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
 
-{{-- <!-- Owl Carousel -->
-<script src="jquery.min.js"></script>
-<script src="owlcarousel/owl.carousel.min.js"></script> --}}
-
 </html>
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kopikimo</title>
-    @yield('head')
-</head>
-<body>
-    <h2>Navbar</h2>
-    <a href="/">Home Page</a>
-    <a href={{ route('menu') }}>Menu Page</a>
-<a href={{ route('cart') }}>Cart Page</a>
-@auth
-<a href={{ route('myOrders') }}>My Orders</a>
-<a href={{ route('dashboard') }}>Dashboard</a>
-<a href={{ route('logout') }}>Logout</a>
-@endauth
-@guest
-<a href={{ route('login') }}>Login Page</a>
-<a href={{ route('register') }}>Register Page</a>
-@endguest
-
-<hr>
-@yield('content')
-<hr>
-
-<h2>Footer</h2>
-</body>
-
-</html> --}}

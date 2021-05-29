@@ -25,7 +25,7 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nobis ea qui animi recusandae,
                     molestias quas ratione quod debitis. Voluptate modi exercitationem harum in. Doloremque ut ea ipsa
                     repellendus neque.</p>
-                <button> GO TO SHOP</button>
+                <a href="#menu"><button>GO TO SHOP</button></a>
             </div>
             <div class="imgbox col-lg-6 text-center">
                 <img src="{{ asset('asset/Photo.svg') }}" alt="" srcset="">
@@ -102,8 +102,7 @@
                 <img src="{{ asset('asset/Photo.svg') }}" class="card-img-top" alt="..." style="width: 30%;">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->nama }}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">{{ Str::limit($item->deskripsi, 50, '...') }}</p>
                     <p>Stock : {{ $products->where('coffee_id', $item->id)->sum('stock') }}</p>
                     <a href="/product/{{ $item->id }}" class="btn btn-primary">BUY</a>
                 </div>
