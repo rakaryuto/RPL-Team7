@@ -13,7 +13,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        return view('menu', [
+        return view('index', [
             'products' => Product::all(),
             'coffees' => Coffee::all(),
         ]);

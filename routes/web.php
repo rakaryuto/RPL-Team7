@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Landing page
-Route::view('/', 'index')->name('index');
+Route::get('/', [MenuController::class, 'index'])->name('index');
 Route::get('/home', function () { return redirect()->route('index'); })->name('home');
 
 //Menu pages
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+// Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/product/{id}', [MenuController::class, 'indexProduct']);
 Route::get('/checkout', [MenuController::class, 'checkout'])->name('checkout');
 
