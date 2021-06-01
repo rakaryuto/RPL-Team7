@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MenuController;
@@ -50,3 +51,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/test', [CartController::class, 'test']);
+
+// Admin Page
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/login', [AdminController::class, 'indexLogin']);
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.auth.login');
+Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
