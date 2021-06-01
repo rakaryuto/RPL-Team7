@@ -1,0 +1,203 @@
+@import url('main.css');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #F1EEE9;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}   
+
+p{
+    letter-spacing: 0.1rem;
+    font-size: 18px;
+}
+
+
+/* Navigation Bar */
+header{
+    height: 15vh;
+}
+.navbar{   
+    margin : 10px 0px;
+}
+
+.nav-right .navbar-nav .nav-item{
+    margin: 0px 30px;
+}
+
+.nav-right .navbar-nav .nav-item a{
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #001;
+}
+
+
+.nav-left .navbar-nav .nav-item{
+    margin: 0px 40px;
+}
+
+.nav-left .navbar-nav .nav-item a{
+    letter-spacing: 0.1em;
+    color: #001;
+    font-weight: 600;
+}
+
+.container{
+    align-items: center;
+}
+
+.banner{
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+.content{
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.content h2{
+    margin-bottom: 10%;
+}
+
+.textbox p{
+    margin-bottom: 15%;
+    color: #001;
+}
+
+.textbox button{
+    font-size: 14px;
+    padding: 10px 60px;
+    background-color: #001;
+    color: #F1EEE9;
+    border: none;
+}
+
+.contact {
+    position: fixed;
+    left: 95%;
+    top : 30vh;
+    display: flex;
+    width: 10%;
+    flex-direction: column;
+}
+
+.contact a img {
+    width: 30px;
+    margin : 20px 0px;
+}
+
+
+
+.carousel-control-prev{
+    position: absolute;
+    left: -1px;
+}
+
+.carousel-inner {
+    height: 40vh;
+}
+
+.carousel-item {
+    width : 80%;
+    margin-left: 10%;
+}
+
+
+@media screen and (max-width:991px) {
+
+
+    p{
+        font-size: 14px;
+        letter-spacing: 0.1em;
+    }
+    .content 
+    {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .navbar-brand img{
+        width: 70%;
+    }
+
+    .nav-right .navbar-nav .nav-item a{
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .nav-left .navbar-nav .nav-item a{
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .banner{
+        margin-top: 10px;
+    }
+
+    .content{
+        margin-top: 5px;
+    }
+
+    .imgbox img {
+        width : 30%;
+        margin-bottom: 5%;
+    }
+
+    .textbox h2{
+        font-size: 50px;
+        margin-bottom: 5%;
+    }
+
+    .textbox p{
+        margin-bottom: 50px;
+        color: #001;
+    }
+
+    .textbox button {
+        margin-bottom: 30px;
+    }
+
+    .contact{
+        left: 90%;
+    }
+    .contact a img{
+        width: 25px;
+    }   
+
+    #testimonials .content{
+        align-items: center;
+        margin-top: 5vh;
+        height: 70vh;
+        justify-content: center;
+    }
+
+    h3{
+        font-size: 30px;
+    }
+
+    .item {
+        height: 40vh;
+        width: 40vh;
+        margin-bottom: 30px;
+    }
+
+    .menu-bar {
+        align-items: center;
+        justify-content: center;
+    }
+
+}

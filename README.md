@@ -1,3 +1,9 @@
+RPL Tim 7
+- Aakasyah Nurfath (indo14nurfath@apps.ipb.ac.id)                   | Backend Developer
+- Muhammad Alifio Ghitrif Al'bazij (alifioghitrif@apps.ipb.ac.id)   | UI/UX Designer
+- Andra Setiyo Wicaksono (andrawicaksono@apps.ipb.ac.id)            | Backend Developer
+- Ramadhan Agung Karyuto (rakaryuto23karyuto@apps.ipb.ac.id)        | Project Manager & Frontend Developer
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
