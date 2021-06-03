@@ -73,13 +73,17 @@
                       </h2>
                       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                            <label for="Username">NAME</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">NAME</label>
+                                <input type="text" class="form-control" id="name" placeholder="customer's name">
                             </div>
                             <div class="mb-3">
-                                <label for="email">EMAIL</label>
-                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                <label for="email" class="form-label">EMAIL</label>
+                                <input type="email" class="form-control" id="email" placeholder="email@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">PHONE NUMBER</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="">
                             </div>
                         </div>
                       </div>
@@ -95,7 +99,26 @@
                       </h2>
                       <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <div class="mb-3">
+                                <label for="street" class="form-label">STREET NAME</label>
+                                <textarea class="form-control" id="street" rows="3"></textarea>
+                              </div>
+                            <div class="mb-3">
+                                <label for="region" class="form-label">REGION (KEC.)</label>
+                                <input type="text" class="form-control" id="region">
+                            </div>
+                            <div class="mb-3">
+                                <label for="city" class="form-label">CITY (KAB/KOTA)</label>
+                                <input type="text" class="form-control" id="city">
+                            </div>
+                            <div class="mb-3">
+                                <label for="province" class="form-label">PROVINCE</label>
+                                <input type="text" class="form-control" id="province">
+                            </div>
+                            <div class="mb-3">
+                                <label for="postcode" class="form-label">POST CODE (KODE POS)</label>
+                                <input type="text" class="form-control" id="postcode" >
+                            </div>
                         </div>
                       </div>
                     </div>
@@ -110,8 +133,74 @@
                           </button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                          <div class="accordion-body">
-                              
+                          <div class="payment accordion-body">
+                                <div class="product-spect-bar">
+                                    <div class="product-spect-name">
+                                        <h4>PREMIUM AREN LATTE</h4>
+                                        <p>BOTTLE : <span class="bottle-type">PET</span> , SIZE : <span class="bottle-size">1L</span> , EXTRA SHOT : <span class="extra-shot">NO</span></p>
+                                    </div>
+                                    <div class="product-spect-price">
+                                        <div class="product-price">
+                                            <p>RP. 150.000</p>
+                                            <div class="productsum-button btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="add minus btn btn-dark">-</button>
+                                                <input class="amount" type="number" name="qty" id="" value="1">
+                                                <button type="button" class="add plus btn btn-dark">+</button>
+                                            </div>
+                                        </div>
+                                        <button>EDIT</button>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="product-spect-bar">
+                                    <div class="product-spect-name">
+                                        <h4>PREMIUM AREN LATTE</h4>
+                                        <p>BOTTLE : <span class="bottle-type">PET</span> , SIZE : <span class="bottle-size">1L</span> , EXTRA SHOT : <span class="extra-shot">NO</span></p>
+                                    </div>
+                                    <div class="product-spect-price">
+                                        <div class="product-price">
+                                            <p>RP. 150.000</p>
+                                            <div class="productsum-button btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="add btn btn-dark">-</button>
+                                                <div class="amount"><p>1</p></div>
+                                                <button type="button" class="add btn btn-dark">+</button>
+                                            </div>
+                                        </div>
+                                        <button>EDIT</button>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="product-spect-bar">
+                                    <div class="product-spect-name">
+                                        <h4>PREMIUM AREN LATTE</h4>
+                                        <p>BOTTLE : <span class="bottle-type">PET</span> , SIZE : <span class="bottle-size">1L</span> , EXTRA SHOT : <span class="extra-shot">NO</span></p>
+                                    </div>
+                                    <div class="product-spect-price">
+                                        <div class="product-price">
+                                            <p>RP. 150.000</p>
+                                            <div class="productsum-button btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="add btn btn-dark">-</button>
+                                                <div class="amount"><p>1</p></div>
+                                                <button type="button" class="add btn btn-dark">+</button>
+                                            </div>
+                                        </div>
+                                        <button>EDIT</button>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                    <div class="total-bar">
+                                        <div class="total-price-bar">
+                                            Total Price : <span class="total-price">RP. 150.000</span>
+                                        </div>
+                                        <div class="postal-fee-bar">
+                                            Postal Fee  : <span class="postal-fee">RP. 20.000</span>
+                                        </div>
+                                        <div class="total-payment-bar">
+                                            Total Payment : <span class="total-payment"> RP. 170.000 </span>
+                                        </div>
+                                        <button class=" btn btn-dark checkout mt-5"> checkout</button>
+                                    </div>
                           </div>
                         </div>
                       </div>
@@ -121,9 +210,6 @@
             </div>
             
         </section>
-
-        
-        
     
 </body>
 
@@ -133,5 +219,7 @@
 <!-- Owl Carousel -->
 <script src="jquery.min.js"></script>
 <script src="owlcarousel/owl.carousel.min.js"></script>
+
+<script src="main.js"></script>
 
 </html>
