@@ -53,15 +53,20 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/test', [CartController::class, 'test']);
 
 // Admin
-Route::get('/admin', [AdminController::class, 'index']);
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
 
-// Admin Auth
-Route::get('/admin/login', [AdminController::class, 'indexLogin']);
-Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.auth.login');
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    // Auth
+    Route::get('/login', [AdminController::class, 'indexLogin']);
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.authlogin');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-// Admin Products
-Route::get('admin/products', [AdminController::class, 'products']);
-
-// Admin Orders
-Route::get('admin/orders', [AdminController::class, 'orders']);
+    // Products
+    Route::get('/products', [AdminController::class, 'indexProducts']);
+    Route::get('/products/{id}', [AdminController::class, 'indexEdit']);
+    Route::post('/products/{id}', [AdminController::class, 'edit'])->name('admin.saveChanges');
+    Route::get('/products/delete/{id}', [AdminController::class, 'delete'])->name('admin.productdelete');
+    
+    // Orders
+    Route::get('/orders', [AdminController::class, 'orders']);
+});
