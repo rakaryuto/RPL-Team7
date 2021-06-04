@@ -9,10 +9,9 @@
 <div style="color: red">{{ session()->get('fail') }}</div>
 @endif
 
-<form action="{{ route('cancelorder') }}" method="POST">
+    @if ($order)
     {{-- My Orders --}}
     @foreach ($order as $item)
-    <input type="hidden" name="orderid" value="{{ $item['id'] }}">
     <div class="order" style="border: 1px solid black; padding: 1em; margin: 1em;">
         {{-- order_id --}}
         <div><span style="font-weight: bold">Order ID :</span> {{ $item['id'] }}</div>
@@ -56,7 +55,30 @@
         <div><span style="font-weight: bold">Biaya Pengiriman :</span> {{ $item['ongkir'] }}</div>
         {{-- total tagihan --}}
         <div><span style="font-weight: bold">Total Tagihan :</span> {{ $item['total'] }}</div>
+        @if ($item['trf'])
+            <div class="text-center fw-bold">Order is currently processed</div>
+        @else           
+            <div class="d-flex justify-content-around">
+                <div class="flex-fill">
+                    {{-- upload --}}
+                    <form action="{{ route('uploadtrf') }}" method="POST" enctype="multipart/form-data" class="d-flex flex-column">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $item['id'] }}">
+                        <input type="hidden" name="status" value="{{ $item['status'] }}">
+                        <label for="trf" class="fw-bold">Upload Bukti Transfer</label>
+                        <input type="file" id="trf" name="trf" class="my-3">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+                <div class="flex-fill">
+                    {{-- cancel order --}}
+                    <a href="/order/cancel/{{ $item['id'] }}" class="btn btn-danger d-flex justify-content-center">Cancel Order</a>
+                </div>
+            </div>
+        @endif
     </div>
     @endforeach
-</form>
+    @else
+        There is currently no Orders
+    @endif
 @endsection

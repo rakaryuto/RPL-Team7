@@ -11,6 +11,7 @@ use App\Models\Size;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -23,43 +24,36 @@ class UserController extends Controller
         $order = array();
         $i = 0;
         foreach (Order::where('user_id', Auth::user()->id)->get() as $item) {
-            // orderid
-            $order[$i]['id'] = $item->id;
-            // status
-            $order[$i]['status'] = $item->status;
-            // nama
-            $order[$i]['nama'] = $item->nama;
-            // ongkir
-            $order[$i]['ongkir'] = $item->ongkir;
-            // harga
-            $order[$i]['harga'] = $item->harga;
-            // total tagihan = harga + ongkir
-            $order[$i]['total'] = $item->harga + $item->ongkir;
-            // whatsapp
-            $order[$i]['whatsapp'] = $item->whatsapp;
-            // email
-            $order[$i]['email'] = $item->email;
-            // alamat
-            $order[$i]['alamat'] = $item->alamat;
+            $order[$i]['id'] = $item->id;                           // orderid
+            $order[$i]['status'] = $item->status;                   // status
+            $order[$i]['nama'] = $item->nama;                       // nama
+            $order[$i]['ongkir'] = $item->ongkir;                   // ongkir
+            $order[$i]['harga'] = $item->harga;                     // harga
+            $order[$i]['total'] = $item->harga + $item->ongkir;     // total tagihan = harga + ongkir
+            $order[$i]['whatsapp'] = $item->whatsapp;               // whatsapp
+            $order[$i]['email'] = $item->email;                     // email
+            $order[$i]['alamat'] = $item->alamat;                   // alamat
             $j = 0;
             foreach (OrderProduct::where('order_id', $item->id)->get() as $item_prod) {
-                // nama
-                $order[$i]['prod'][$j]['nama'] = Coffee::where('id', Product::Where('id', $item_prod['product_id'])->first()->coffee_id)->first()->nama;
-                // xtra
-                $order[$i]['prod'][$j]['xtra'] = Product::Where('id', $item_prod['product_id'])->first()->extrashot;
-                // size
-                $order[$i]['prod'][$j]['size'] = Size::Where('id', Product::Where('id', $item_prod['product_id'])->first()->size_id)->first()->nama;
-                // pack
-                $order[$i]['prod'][$j]['pack'] = Pack::Where('id', Product::Where('id', $item_prod['product_id'])->first()->pack_id)->first()->nama;
-                // qty
-                $order[$i]['prod'][$j]['qty'] = $item_prod->jumlah;
-                // harga n item
-                $order[$i]['prod'][$j]['harga'] = Product::Where('id', $item_prod['product_id'])->first()->harga * $item_prod->jumlah;
+                $order[$i]['prod'][$j]['nama'] = Coffee::where('id', Product::Where('id', $item_prod['product_id'])->first()->coffee_id)->first()->nama;    // nama
+                $order[$i]['prod'][$j]['xtra'] = Product::Where('id', $item_prod['product_id'])->first()->extrashot;                                        // xtra
+                $order[$i]['prod'][$j]['size'] = Size::Where('id', Product::Where('id', $item_prod['product_id'])->first()->size_id)->first()->nama;        // size
+                $order[$i]['prod'][$j]['pack'] = Pack::Where('id', Product::Where('id', $item_prod['product_id'])->first()->pack_id)->first()->nama;        // pack
+                $order[$i]['prod'][$j]['qty'] = $item_prod->jumlah;                                                                                         // qty
+                $order[$i]['prod'][$j]['harga'] = Product::Where('id', $item_prod['product_id'])->first()->harga * $item_prod->jumlah;                      // harga n item
                 $j++;
             }
+
+            $order[$i]['trf'] = null;
+            if ( Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.jpg') )        {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.jpeg'))    {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.png'))     {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.bmp'))     {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.gif'))     {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.svg'))     {$order[$i]['trf'] = 1;}
+            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.webp'))    {$order[$i]['trf'] = 1;}
             $i++;
         }
-        // dd($order);
 
         return view('user.orders', [
             'order' => $order,
@@ -222,18 +216,46 @@ class UserController extends Controller
 
 
 
-    public function cancelOrder(Request $request) {
-        if (!$request->orderid){
+    public function cancelOrder($id)
+    {
+        $data = Order::where('id', $id)->first();
+
+        if (strtolower($data->status) == "waiting") {
+            if ($id) {
+                if (Order::destroy($id)) {
+                    if (OrderProduct::where('order_id', $id)->delete()) {
+                        return back()->with('success', 'order canceled successfully');
+                    } else {
+                        return back()->with('fail', 'failed deleting order');
+                    }
+                } else {
+                    return back()->with('fail', 'failed deleting order');
+                }
+            }
             return redirect()->route('myOrders');
         }
 
-        if (Order::destroy($request->orderid)) {
-            if (OrderProduct::where('order_id', $request->orderid)->delete()) {
-                return back()->with('success', 'order canceled successfully');
-            }
-            else {return back()->with('fail', 'failed deleting order');}
-        }
-        else {return back()->with('fail', 'failed deleting order');}
+        return back()->with('fail', 'Order tidak bisa dicancel karena sudah diproses');
+    }
 
+
+    public function uploadtrf(Request $request)
+    {
+        $request->validate(['trf' => 'image',]);
+        $user = User::find(Auth::user()->id);
+        $order = Order::where('id', $request->id)->first();
+
+
+        if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
+            // 1-order1.jpg
+            $namafile = $user->id . '-order' . $order->id . '.' . $request->file('trf')->extension();
+            $request->file('trf')->storeAs('trf', $namafile);
+
+            $order->status = "waiting";
+            $order->save();
+
+            return back()->with('success', 'File uploaded Successfully');
+        }
+        return back()->with('fail', 'Error occured during file transfer upload, Please try again');
     }
 }

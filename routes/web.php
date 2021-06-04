@@ -47,7 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard', [UserController::class, 'profile'])->name('profile');
     Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
     Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
-    Route::post('/cancelorder', [UserController::class, 'cancelOrder'])->name('cancelorder');
+    Route::get('/order/cancel/{id}', [UserController::class, 'cancelOrder']);
+    Route::post('/order/uploadtrf', [UserController::class, 'uploadtrf'])->name('uploadtrf');
 });
 
 Route::get('/test', [CartController::class, 'test']);

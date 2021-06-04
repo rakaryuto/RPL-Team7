@@ -21,8 +21,8 @@
                     <p>{{ $desc }}</p>
                     <input type="hidden" name="coffee" value="{{$id}}">
 
-                    @if (session()->has('fail.prod'))
-                        <div class="alert alert-danger">{{ session()->get('fail.prod') }}</div>
+                    @if (session()->has('fail'))
+                        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
                     @endif
                     
                     {{-- Web View --}}
@@ -134,7 +134,7 @@
 
 
             <div class="imgbox col-lg-6 text-center">
-                <img src="{{ asset('asset/Photo.svg') }}" alt="" srcset="">
+                <img src="{{ asset('asset/'.$name.'.png') }}" class="img-fluid" alt="" srcset="">
             </div>
 
 
@@ -153,5 +153,6 @@
 
         </div>
     </div>
+    <div style="height: 1rem"></div>
 </section>
 @endsection
