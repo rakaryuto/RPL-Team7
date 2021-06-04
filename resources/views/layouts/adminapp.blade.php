@@ -28,7 +28,7 @@ if( !isset($_SESSION["login"]) ) {
 <body class="container">
     <header class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="" class="navbar-brand">
+            <a href="/admin" class="navbar-brand">
                 <img src="{{ asset('asset/logo-brand.svg') }}" alt="logo" srcset="">
             </a>
             <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@ if( !isset($_SESSION["login"]) ) {
             <div class="nav-left collapse navbar-collapse" id ="navbarNav">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item">
-                        <a href="" class="nav-link">HOME</a>
+                        <a href="/admin" class="nav-link">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a href="/admin/products" class="nav-link">PRODUCTS</a>
@@ -61,4 +61,5 @@ if( !isset($_SESSION["login"]) ) {
 
 </body>
 </html>
+
 
