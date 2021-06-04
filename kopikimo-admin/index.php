@@ -16,7 +16,7 @@ include('session.php')
 <center>
 	<div class="container">
 		<a href="products.php"><button>PRODUCTS</button></a><br><br>
-		<a href="products.php"><button>ORDERS</button></a><br>
+		<a href="orders.php"><button>ORDERS</button></a><br>
 	</div>
 </center>
 
