@@ -54,7 +54,15 @@ class AdminController extends Controller {
             'sizes' => Size::all(),
         ]);
     }
-
+    
+    public function orders() {
+        return view('admin.orders', [
+            'products' => Products::all(),
+            'coffees' => Coffee::all(),
+            'packs' => Pack::all(),
+            'sizes' => Size::all(), 
+        ]);
+    }
 
 }
 
