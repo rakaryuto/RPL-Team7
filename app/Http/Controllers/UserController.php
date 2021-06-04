@@ -74,9 +74,9 @@ class UserController extends Controller
     {
         // Ongkir
         $dekat  = 5000;
-        $medium = 10000;
-        $jauh   = 15000;
-        $luar   = 30000;
+        $medium = 7500;
+        $jauh   = 10000;
+        $luar   = 20000;
         if ($request->jabodetabek == "dalam") {
             if ($request->kota == 'kota1') {
                 $ongkir = $dekat;
@@ -131,9 +131,9 @@ class UserController extends Controller
 
         // Alamat
         $dekat  = 5000;
-        $medium = 10000;
-        $jauh   = 15000;
-        $luar   = 30000;
+        $medium = 7500;
+        $jauh   = 10000;
+        $luar   = 20000;
         if (!Auth::user()->alamat) {
             // belom keisi
             $alamat = $nama . ' ' . $request->jabodetabek;
@@ -183,9 +183,9 @@ class UserController extends Controller
         // Cek stock dan ngitung Harga
         foreach (session()->get('cart') as $item) {
             $check = Product::where('id', $item['id'])->first();
-            
+
             if ($check->stock < $item['qty']) {
-                $message = 'Stock produk '. Coffee::where('id', $check->coffee_id)->first()->nama . ' kurang (tersisa ' . $check->stock . ' produk) ';
+                $message = 'Stock produk ' . Coffee::where('id', $check->coffee_id)->first()->nama . ' kurang (tersisa ' . $check->stock . ' produk) ';
                 return back()->with('stock', $message);
             }
             $check->stock -= $item['qty'];
@@ -216,5 +216,24 @@ class UserController extends Controller
 
         session()->forget('cart');
         return redirect()->route('myOrders')->with('success', 'Order sudah dibuat');
+    }
+
+
+
+
+
+    public function cancelOrder(Request $request) {
+        if (!$request->orderid){
+            return redirect()->route('myOrders');
+        }
+
+        if (Order::destroy($request->orderid)) {
+            if (OrderProduct::where('order_id', $request->orderid)->delete()) {
+                return back()->with('success', 'order canceled successfully');
+            }
+            else {return back()->with('fail', 'failed deleting order');}
+        }
+        else {return back()->with('fail', 'failed deleting order');}
+
     }
 }

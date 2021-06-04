@@ -1,19 +1,15 @@
 @extends('layouts.app')
 
 @section('navbuttons')
-<div class="nav-left collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav text-center">
-        <li class="nav-item">
-            <a href="#landing" class="nav-link">HOME</a>
-        </li>
-        <li class="nav-item">
-            <a href="#testimonials" class="nav-link">ABOUT US</a>
-        </li>
-        <li class="nav-item">
-            <a href="#menu" class="nav-link">MENU</a>
-        </li>
-    </ul>
-</div>
+<li class="nav-item">
+    <a href="#landing" class="nav-link">HOME</a>
+</li>
+<li class="nav-item">
+    <a href="#testimonials" class="nav-link">ABOUT US</a>
+</li>
+<li class="nav-item">
+    <a href="#menu" class="nav-link">MENU</a>
+</li>
 @endsection
 
 @section('content')
@@ -22,9 +18,7 @@
         <div class="row content">
             <div class="col-lg-6 textbox justify-content-center">
                 <h2>KOPIKIMO</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nobis ea qui animi recusandae,
-                    molestias quas ratione quod debitis. Voluptate modi exercitationem harum in. Doloremque ut ea ipsa
-                    repellendus neque.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nobis ea qui animi recusandae, molestias quas ratione quod debitis. Voluptate modi exercitationem harum in. Doloremque ut ea ipsa repellendus neque.</p>
                 <a href="#menu"><button>GO TO SHOP</button></a>
             </div>
             <div class="imgbox col-lg-6 text-center">
@@ -53,41 +47,30 @@
         <div class="content">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner carousel-testi">
-                    <div class="carousel-item active justify-content-center text-center align-items-center">
-                        <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA
-                            NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG
-                            PAS BANGET."</p>
-                    </div>
-                    <div class="carousel-item justify-content-center text-center align-items-center">
-                        <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA
-                            NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG
-                            PAS BANGET."</p>
-                    </div>
-                    <div class="carousel-item justify-content-center text-center align-items-center">
-                        <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA
-                            NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG
-                            PAS BANGET."</p>
-                    </div>
+                  <div class="carousel-item active justify-content-center text-center align-items-center">
+                    <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG PAS BANGET."</p>
+                  </div>
+                  <div class="carousel-item justify-content-center text-center align-items-center">
+                    <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG PAS BANGET."</p>
+                  </div>
+                  <div class="carousel-item justify-content-center text-center align-items-center">
+                    <p class="d-block w-100">"RASA DARI BIJI KOPI NYA KERASA BANGET, DITAMBAH DENGAN GULA ARENNYA NGASIH TEKSTUR MANIS YANG GA TERLALU BERLEBIHAN TAPI MASIH BISA MEMBERIKAN RASA ENAK YANG PAS BANGET."</p>
+                  </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
                 </button>
-            </div>
+              </div>
         </div>
     </div>
 </section>
@@ -99,7 +82,7 @@
         <div class="row menu-bar baverages">
             @foreach ($coffees as $item)
             <div class="card col-lg-3 col-md-4 col-sm-4" style="width: 18rem;">
-                <img src="{{ asset('asset/Photo.svg') }}" class="card-img-top" alt="..." style="width: 30%;">
+                <img src="{{ asset('asset/'.$item->nama.'.png') }}" class="card-img-top img-fluid" alt="Photo Unavailable">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->nama }}</h5>
                     <p class="card-text">{{ Str::limit($item->deskripsi, 50, '...') }}</p>

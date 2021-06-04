@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-  <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+<link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 @endsection
 
 @section('content')
@@ -9,101 +9,161 @@
     <div class="container">
         <div class="accordion" id="accordionPanelsStayOpenExample">
             
+            
+            
+            
             <div class="profile accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                    <div class="accordion-heading">
-                        <img src="{{ asset('asset/Profile.svg') }}" alt="cart logo" srcset="">
-                        <h5>PROFILE</h5>
-                    </div>
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                    <label for="Username">NAME</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email">EMAIL</label>
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+                        <div class="accordion-heading">
+                            <img src="{{ asset('Asset/Profile.svg') }}" alt="cart logo" srcset="">
+                            <h5>PROFILE</h5>
+                        </div>
+                    </button>
+                </h2>
+
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">NAME</label>
+                            <input type="text" class="form-control" id="name" placeholder="customer's name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">EMAIL</label>
+                            <input type="email" class="form-control" id="email" placeholder="email@gmail.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">PHONE NUMBER</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="">
+                        </div>
                     </div>
                 </div>
-              </div>
+                
             </div>
+
+
+
+
             <div class="address accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                    <div class="accordion-heading">
-                        <img src="{{ asset('asset/Vector (2).svg') }}" alt="cart logo" srcset="">
-                        <h5>ADDRESS</h5>
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
+                        <div class="accordion-heading">
+                            <img src="{{ asset('Asset/Vector (2).svg') }}" alt="cart logo" srcset="">
+                            <h5>ADDRESS</h5>
+                        </div>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        <div class="mb-3">
+                            <label for="street" class="form-label">STREET NAME</label>
+                            <textarea class="form-control" id="street" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="region" class="form-label">REGION (KEC.)</label>
+                            <input type="text" class="form-control" id="region">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">CITY (KAB/KOTA)</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+                        <div class="mb-3">
+                            <label for="province" class="form-label">PROVINCE</label>
+                            <input type="text" class="form-control" id="province">
+                        </div>
+                        <div class="mb-3">
+                            <label for="postcode" class="form-label">POST CODE (KODE POS)</label>
+                            <input type="text" class="form-control" id="postcode">
+                        </div>
                     </div>
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                 </div>
-              </div>
             </div>
+
+
+
 
             <div class="cart accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    <div class="accordion-heading">
-                      <img src="{{ asset('asset/Profile.svg') }}" alt="cart logo" srcset="">
-                      <h5>PAYMENT CONFIRMATION</h5>
-                    </div>
-                  </button>
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                        <div class="accordion-heading">
+                            <img src="Asset/Profile.svg" alt="cart logo" srcset="">
+                            <h5>PAYMENT CONFIRMATION</h5>
+                        </div>
+                    </button>
                 </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                  <div class="accordion-body">
-                      
-                  </div>
-                </div>
-              </div>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="payment accordion-body">
 
-          </div>
+                        @foreach ($product as $item)
+                        <div class="product-spect-bar">
+                            <div class="product-spect-name">
+                                <h4>
+                                    {{ $item['nama'] }}
+                                    @if ($item['xtra'])
+                                    With Extra Shot
+                                    @endif
+                                </h4>
+                                <p>
+                                    BOTTLE : {{ $item['pack'] }} |
+                                    SIZE : {{ $item['size'] }}
+                                </p>
+                            </div>
+                            <div class="product-spect-price">
+                                <div class="product-price">
+                                    <p>{{ number_format($item['total']) }}</p>
+                                    <div class="productsum-button btn-group" role="group" aria-label="Basic example">
+                                        Quantity : {{ $item['qty'] }}
+                                        {{-- <button type="button" class="add minus btn btn-dark">-</button> --}}
+                                        {{-- <input type="number" class="amount" name="qty" value="{{ $item['qty'] }}"
+                                        min="1" max="5"> --}}
+                                        {{-- <button type="button" class="add plus btn btn-dark">+</button> --}}
+                                    </div>
+                                </div>
+                                <a href="cart/edit/{{ $item['id'] }}"><button>EDIT</button></a>
+                            </div>
+                        </div>
+                        <hr>
+                        @endforeach
+
+                        <div class="total-bar">
+                            <div class="total-price-bar">
+                                Subtotal : <span class="total-price">{{ number_format($total) }}</span>
+                            </div>
+                            @if (Auth::user())
+                            @if (Auth::user()->ongkir)
+                            <div class="postal-fee-bar">
+                                Postal Fee : <span class="postal-fee">{{ number_format(Auth::user()->ongkir) }}</span>
+                            </div>
+                            <div class="total-payment-bar">
+                                Total Payment : <span
+                                    class="total-payment">{{ number_format($total + Auth::user()->ongkir) }}</span>
+                            </div>
+                            @else
+                            Postal Fee isnt Defined yet
+                            @endif
+                            @else
+                            You have not Logged in yet
+                            @endif
+                            <button class=" btn btn-dark checkout mt-5">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
     </div>
-    
 </section>
-    {{-- <h1>Cart Page</h1>
-    @if ( session()->has('success') )
-        <div>{{ session()->get('success') }}</div>
-    @endif
-
-    @if ( session()->has('cart') )
-        @for($i=0;$i<=$products->count();$i++)   @if(session()->has('cart.'.$i))
-        <div style="border: 1px solid black; padding: .5em;">
-            <h2 style="margin: 0;">
-                {{ $coffee->where('id', $products->where('id', $i)->first()->coffee_id)->first()->nama }}
-                @if ($products->where('id', $i)->first()->extrashot)
-                    With Extra Shot
-                @endif
-            </h2>
-
-            <p>Size : {{ $size->where('id', $products->where('id', $i)->first()->size_id)->first()->nama }}</p>
-            <p>Pack : {{ $pack->where('id', $products->where('id', $i)->first()->pack_id)->first()->nama }}</p>
-            <p>Quantity : {{ session()->get('cart.'.$i.'.qty') }}</p>
-            
-            <form action={{ route('cart.del') }} method="POST">
-                @csrf
-                <input type="hidden" name="delete" value="{{ session()->get('cart.'.$i.'.id') }}">
-                <button type="submit">Delete Item</button>
-            </form>
-        </div>
-        @endif   @endfor
-
-        
-        <div style="margin: 1em 0">
-            <a href={{ route('checkout') }}>Checkout</a>
-        </div>
-        <div style="margin: 1em 0">
-            <a href={{ route('cart.delall') }}>Clear Cart</a>
-        </div>
-    @else
-    
-    Cart Kosong
-    @endif --}}
 @endsection

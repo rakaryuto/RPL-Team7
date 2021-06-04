@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>My Orders Page</h1>
-    @if ( session()->has('success') )
-        <div>{{ session()->get('success') }}</div>
-    @endif
-    @if ( session()->has('fail') )
-        <div style="color: red">{{ session()->get('fail') }}</div>
-    @endif
+<h1>My Orders Page</h1>
+@if ( session()->has('success') )
+<div>{{ session()->get('success') }}</div>
+@endif
+@if ( session()->has('fail') )
+<div style="color: red">{{ session()->get('fail') }}</div>
+@endif
 
+<form action="{{ route('cancelorder') }}" method="POST">
     {{-- My Orders --}}
     @foreach ($order as $item)
+    <input type="hidden" name="orderid" value="{{ $item['id'] }}">
     <div class="order" style="border: 1px solid black; padding: 1em; margin: 1em;">
         {{-- order_id --}}
         <div><span style="font-weight: bold">Order ID :</span> {{ $item['id'] }}</div>
@@ -33,7 +35,7 @@
                     {{ $item_prod['nama'] }}
                     {{-- xtra --}}
                     @if ($item_prod['xtra'])
-                        With Extra Shot
+                    With Extra Shot
                     @endif
                 </h2>
 
@@ -53,7 +55,8 @@
         {{-- ongkir --}}
         <div><span style="font-weight: bold">Biaya Pengiriman :</span> {{ $item['ongkir'] }}</div>
         {{-- total tagihan --}}
-        <div><span style="font-weight: bold">Total Tagihan :</span> {{ $item['total'] }}</div>    
+        <div><span style="font-weight: bold">Total Tagihan :</span> {{ $item['total'] }}</div>
     </div>
     @endforeach
+</form>
 @endsection

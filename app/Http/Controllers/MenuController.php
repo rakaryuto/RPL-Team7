@@ -22,6 +22,7 @@ class MenuController extends Controller
     public function indexProduct($id)
     {
         return view('layouts.product', [
+            'id'        => $id,
             'name'      => Coffee::where('id', $id)->first()->nama,
             'desc'      => Coffee::where('id', $id)->first()->deskripsi,
             'products'  => Product::where('coffee_id', $id)->get(),

@@ -45,8 +45,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::post('/dashboard', [UserController::class, 'profile'])->name('profile');
-    Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
     Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
+    Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
+    Route::post('/cancelorder', [UserController::class, 'cancelOrder'])->name('cancelorder');
 });
 
 Route::get('/test', [CartController::class, 'test']);
