@@ -47,7 +47,7 @@ class AdminController extends Controller {
 
     public function products() {
         $i = 1;
-        return view('admin.products', [
+        return view('admin.products', [                 // Kas tolong benerin querynya yg products ama orders biar bisa jadi join gimana
             'products' => Product::all(),
             'coffees' => Coffee::all(),
             'packs' => Pack::all(),
