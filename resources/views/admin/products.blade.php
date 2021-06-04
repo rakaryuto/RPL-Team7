@@ -8,6 +8,12 @@
 
 @section('content')
 
+<style>
+    th, td {
+        border: 1px solid black;
+    }
+</style>
+
 <h1 class="text-center">Products</h1>
 
 <div id="container" class="text-center">
@@ -21,7 +27,7 @@
             <th>Extrashot</th>
             <th>Stock</th>
             <th>Price</th>
-            <th></th>
+            <th>Action</th>
         </tr>
     
         
