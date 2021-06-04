@@ -1,13 +1,12 @@
-@extends('admin.session')
+@extends('layouts.adminapp')
 
-<!DOCTYPE html>
-<html>
-<head>
-	@include('admin.head')
-	<title>Admin Kopikimo</title>
-</head>
-<body class="container">
-@include('admin.header')
+@section('title')
+
+<title>Admin Kopikimo</title>
+	
+@endsection
+
+@section('content')
 
 <h1 class="text-center">Admin Kopikimo</h1>
 
@@ -18,5 +17,4 @@
 	</div>
 </center>
 
-</body>
-</html>
+@endsection
