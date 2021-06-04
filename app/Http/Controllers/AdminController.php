@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Support\Facades\Auth;
+use App\Models\Coffee;
+use App\Models\Pack;
+use App\Models\Product;
+use App\Models\Size;
 
 class AdminController extends Controller {
 
@@ -42,6 +44,18 @@ class AdminController extends Controller {
         // return redirect()->route('/admin');
         return view('admin.index');
     }
+
+    public function products() {
+        $i = 1;
+        return view('admin.products', [
+            'products' => Product::all(),
+            'coffees' => Coffee::all(),
+            'packs' => Pack::all(),
+            'sizes' => Size::all(),
+        ]);
+    }
+
+
 }
 
 ?>
