@@ -52,8 +52,16 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/test', [CartController::class, 'test']);
 
-// Admin Page
+// Admin
 Route::get('/admin', [AdminController::class, 'index']);
+
+// Admin Auth
 Route::get('/admin/login', [AdminController::class, 'indexLogin']);
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.auth.login');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// Admin Products
+Route::get('admin/products', [AdminController::class, 'products']);
+
+// Admin Orders
+Route::get('admin/orders', [AdminController::class, 'orders']);
