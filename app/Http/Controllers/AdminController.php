@@ -41,12 +41,10 @@ class AdminController extends Controller {
         $_SESSION = [];
         session_unset();
         session_destroy();
-        // return redirect()->route('/admin');
-        return view('admin.index');
+        return redirect('/admin');
     }
 
-    public function products() {
-        $i = 1;
+    public function indexProducts() {
         return view('admin.products', [
             'products' => Product::all(),
             'coffees' => Coffee::all(),
@@ -54,16 +52,35 @@ class AdminController extends Controller {
             'sizes' => Size::all(),
         ]);
     }
-    
-    public function orders() {
-        return view('admin.orders', [
-            'products' => Product::all(),
+
+    public function indexEdit($id) {
+
+        return view('admin.edit', [
+            'products' => Product::where('id', $id)->get(),
             'coffees' => Coffee::all(),
-            'packs' => Pack::all(),
-            'sizes' => Size::all(), 
         ]);
+        
     }
 
+    public function edit($id) {
+
+        $prod = Product::where('id', $id)->get();
+
+        foreach($prod as $item):
+
+        Coffee::where('id', $item->coffee_id)->update([
+            'nama' => $_POST['name'],
+            'deskripsi' => $_POST['desc']
+            ]);
+
+        Product::where('id', $item->id)->update([
+            'stock' => $_POST['stocks'],
+            'harga' => $_POST['price']
+        ]);
+        endforeach;
+
+        return redirect('/admin/products');
+    }
 }
 
 ?>
