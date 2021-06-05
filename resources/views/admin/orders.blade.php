@@ -26,6 +26,7 @@
             <th>Whatsapp No.</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Items</th>
             <th>Subtotal</th>
             <th>Postage</th>
             <th>Total</th>
@@ -42,6 +43,23 @@
                 <td>{{ $item->whatsapp }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->alamat }}</td>
+                <td>
+                    <ol>
+                        @foreach ($order_product as $items)
+                            @if ($item->id == $items->order_id)
+                                @foreach ($products as $prod)
+                                    @if ($items->product_id == $prod->id)
+                                        <li>{{ $coffees->where('id', $prod->coffee_id)->first()->nama }} | {{ $packs->where('id', $prod->pack_id)->first()->nama }} | {{ $sizes->where('id', $prod->pack_id)->first()->nama }}@if ($prod->extrashot)
+                                            | Extrashot 
+                                        @endif
+                                        | {{ $items->jumlah }}
+                                        </li>    
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </ol>
+                </td>
                 <td>{{ $item->harga }}</td>
                 <td>{{ $item->ongkir }}</td>
                 <td>{{ $item->harga + $item->ongkir }}</td>
