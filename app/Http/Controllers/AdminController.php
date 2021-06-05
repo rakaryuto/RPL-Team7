@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Coffee;
+use App\Models\Order;
 use App\Models\Pack;
 use App\Models\Product;
 use App\Models\Size;
@@ -80,6 +81,17 @@ class AdminController extends Controller {
         endforeach;
 
         return redirect('/admin/products');
+    }
+
+    public function indexOrders() {
+        return view('admin.orders', [
+            'orders' => Order::all(),
+        ]);
+    }
+
+    public function confirm() {
+        Order::where('id', $_POST['id'])->update(['status' => $_POST['status']]);
+        return redirect('/admin/orders');
     }
 }
 
