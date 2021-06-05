@@ -1,72 +1,83 @@
-<?php
+@extends('layouts.adminapp')
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+@section('title')
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-//Landing page
-Route::get('/', [MenuController::class, 'index'])->name('index');
-Route::get('/home', function () { return redirect()->route('index'); })->name('home');
-
-//Menu pages
-// Route::get('/menu', [MenuController::class, 'index'])->name('menu');
-Route::get('/product/{id}', [MenuController::class, 'indexProduct']);
-Route::get('/checkout', [MenuController::class, 'checkout'])->name('checkout');
-
-//Cart pages
-Route::prefix('cart')->group(function() {
-    Route::get('/', [CartController::class, 'indexCart'])->name('cart');
-    Route::post('/add', [CartController::class, 'addCart'])->name('cart.add');
-    Route::post('/del', [CartController::class, 'delCart'])->name('cart.del');
-    Route::get('/delall', [CartController::class, 'delAllCart'])->name('cart.delall');
-});
-
-//Auth pages
-Route::get('/login', [AuthController::class, 'indexLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-Route::get('/register', [AuthController::class, 'indexRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// User pages
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::post('/dashboard', [UserController::class, 'profile'])->name('profile');
-    Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
-    Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
-});
-
-Route::get('/test', [CartController::class, 'test']);
-
-// Admin
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index']);
-
-    // Auth
-    Route::get('/login', [AdminController::class, 'indexLogin']);
-    Route::post('/login', [AdminController::class, 'login'])->name('admin.authlogin');
-    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-    // Products
-    Route::get('/products', [AdminController::class, 'indexProducts']);
-    Route::get('/products/{id}', [AdminController::class, 'indexEdit']);
-    Route::post('/products/{id}', [AdminController::class, 'edit'])->name('admin.saveChanges');
-    Route::get('/products/delete/{id}', [AdminController::class, 'delete'])->name('admin.productdelete');
+<title>Orders - Admin Kopikimo</title>
     
-    // Orders
-    Route::get('/orders', [AdminController::class, 'orders']);
-});
+@endsection
+
+@section('content')
+
+<style>
+    th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<h1 class="text-center">Orders</h1>
+
+<div id="container" class="text-center">
+    <table style="width: 100%">
+    
+        <tr>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Whatsapp No.</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Subtotal</th>
+            <th>Postage</th>
+            <th>Total</th>
+            <th>Payment Slip</th>
+            <th>Status</th>
+        </tr>
+    
+        
+        @foreach ($orders as $item)
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->user_id}}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->whatsapp }}</td>
+                <td>{{ $item->email }}</td>
+                <td>{{ $item->alamat }}</td>
+                <td>{{ $item->harga }}</td>
+                <td>{{ $item->ongkir }}</td>
+                <td>{{ $item->harga + $item->ongkir }}</td>
+                <td></td>
+                <td>
+                    @if ($item->status == "waiting")
+                        <form action="/admin/orders/{{ $item->id }}" method="post">
+                            @method('patch')
+                            @csrf
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <input type="hidden" name="status" value="Confirmed">
+                            <input type="submit" name="confirm" value="Confirm">
+                        </form>
+                        <br>
+                        <form action="/admin/orders/{{ $item->id }}" method="post">
+                            @method('patch')
+                            @csrf
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <input type="hidden" name="status" value="Rejected">
+                            <input type="submit" name="confirm" value="Reject">
+                        </form>
+                    @else
+                        {{ $item->status }}
+                        <form action="/admin/orders/{{ $item->id }}" method="post">
+                            @method('patch')
+                            @csrf
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <input type="hidden" name="status" value="waiting">
+                            <input type="submit" name="confirm" value="Cancel">
+                        </form>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+        
+    </table>
+    </div>
+    
+@endsection
