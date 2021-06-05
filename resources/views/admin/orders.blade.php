@@ -81,6 +81,8 @@
                             <input type="hidden" name="status" value="Rejected">
                             <input type="submit" name="confirm" value="Reject">
                         </form>
+                    @elseif ($item->status == "Sent")
+                        Sent
                     @else
                         {{ $item->status }}
                         <form action="/admin/orders/{{ $item->id }}" method="post">
@@ -89,6 +91,13 @@
                             <input type="hidden" name="id" value="{{$item->id}}">
                             <input type="hidden" name="status" value="waiting">
                             <input type="submit" name="confirm" value="Cancel">
+                        </form>
+                        <form action="/admin/orders/{{ $item->id }}" method="post">
+                            @method('patch')
+                            @csrf
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <input type="hidden" name="status" value="Sent">
+                            <input type="submit" name="confirm" value="Sent">
                         </form>
                     @endif
                 </td>
