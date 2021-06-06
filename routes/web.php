@@ -30,7 +30,9 @@ Route::get('/checkout', [MenuController::class, 'checkout'])->name('checkout');
 Route::prefix('cart')->group(function() {
     Route::get('/', [CartController::class, 'indexCart'])->name('cart');
     Route::post('/add', [CartController::class, 'addCart'])->name('cart.add');
-    Route::post('/del', [CartController::class, 'delCart'])->name('cart.del');
+    Route::get('/edit/{id}', [CartController::class, 'indexEdit'])->name('cart.edit');
+    Route::post('/edit', [CartController::class, 'editCart'])->name('cart.edit');
+    Route::get('/del/{id}', [CartController::class, 'delCart'])->name('cart.del');
     Route::get('/delall', [CartController::class, 'delAllCart'])->name('cart.delall');
 });
 
@@ -44,9 +46,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // User pages
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::post('/dashboard', [UserController::class, 'profile'])->name('profile');
-    Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
     Route::get('/myorders', [UserController::class, 'myOrders'])->name('myOrders');
+    Route::post('/profileIdentity', [UserController::class, 'profileIdentity'])->name('profileIdentity');
+    Route::post('/profileAlamat', [UserController::class, 'profileAlamat'])->name('profileAlamat');
+    Route::post('/placeorder', [UserController::class, 'placeorder'])->name('placeorder');
     Route::get('/order/cancel/{id}', [UserController::class, 'cancelOrder']);
     Route::post('/order/uploadtrf', [UserController::class, 'uploadtrf'])->name('uploadtrf');
 });

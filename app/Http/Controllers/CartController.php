@@ -16,11 +16,19 @@ class CartController extends Controller
         dd(session()->get('cart'));
     }
 
+
+
+
+
     public function indexCart()
     {
         $product = null;
         $total = null;
-        $alamat = null;
+        $alamat['jabodetabek']  = 0;
+        $alamat['kota']         = '';
+        $alamat['camat']        = '';
+        $alamat['kodepos']      = '';
+        $alamat['jalan']        = '';
         $user = null;
 
         if (session()->has('cart')) {
@@ -49,18 +57,16 @@ class CartController extends Controller
 
         if (Auth::user()->alamat && Auth::user()->ongkir) {
             $data = explode(' ', Auth::user()->alamat);
-            // JABODETABEK
-            if (Auth::user()->ongkir >= 20000) {$alamat['jabodetabek'] = 1;}
-            else {$alamat['jabodetabek'] = 0;}
-            // KOTA
-            $alamat['kota'] = $data[0];
-            // KECAMATAN
-            $alamat['camat'] = $data[1];
-            // KODE POS
-            $alamat['kodepos'] = $data[count($data)-1];
-            // JALAN
-            $alamat['jalan'] = '';
-            for ($i=2; $i < count($data)-1; $i++) { $alamat['jalan'] = $alamat['jalan'] . " " . $data[$i]; }
+            if (Auth::user()->ongkir >= 20000) {
+                $alamat['jabodetabek'] = 1;
+            }    // JABODETABEK
+            $alamat['kota'] = $data[0];                                         // KOTA
+            $alamat['camat'] = $data[1];                                        // KECAMATAN
+            $alamat['kodepos'] = $data[count($data) - 1];                         // KODE POS
+            $alamat['jalan'] = '';                                              // JALAN
+            for ($i = 2; $i < count($data) - 1; $i++) {
+                $alamat['jalan'] = $alamat['jalan'] . " " . $data[$i];
+            }
         }
 
         return view('cart', [
@@ -70,6 +76,44 @@ class CartController extends Controller
             'user' => $user,
         ]);
     }
+
+
+
+
+
+    public function indexEdit($id)
+    {
+        if (session()->has('cart.' . $id)) {
+            $products   = Product::where('coffee_id', Product::where('id', $id)->first()->coffee_id)->get();
+            $xtra       = Product::Where('id', $id)->first()->extrashot;                                        // xtrashot
+            $kopi       = Coffee::Where('id', Product::Where('id', $id)->first()->coffee_id)->first()->id;      // id kopi
+            $nama       = Coffee::Where('id', Product::Where('id', $id)->first()->coffee_id)->first()->nama;    // nama kopi
+            $size       = Size::Where('id', Product::Where('id', $id)->first()->size_id)->first()->nama;        // size
+            $pack       = Pack::Where('id', Product::Where('id', $id)->first()->pack_id)->first()->nama;        // pack
+            $qty        = session()->get('cart.' . $id . '.qty');                                               // quantity
+            $harga      = Product::Where('id', $id)->first()->harga;                                            // harga
+
+            return view('editcart', [
+                'products' => $products,
+                'all_size' => Size::all(),
+                'all_pack' => Pack::all(),
+                'id' => $id,
+                'kopi' => $kopi,
+                'nama' => $nama,
+                'xtra' => $xtra,
+                'pack' => $pack,
+                'size' => $size,
+                'qty' => $qty,
+                'harga' => $harga,
+            ]);
+        }
+
+        return redirect()->route('cart')->with('fail', 'Produk tidak ada');
+    }
+
+
+
+
 
     public function addCart(Request $request)
     {
@@ -100,14 +144,22 @@ class CartController extends Controller
         return back()->with('fail', 'Quantity tidak boleh kosong');
     }
 
-    public function delCart(Request $request)
+
+
+
+
+    public function delCart($id)
     {
-        session()->forget('cart.' . $request->delete);
+        session()->forget('cart.' . $id);
         if (!session()->get('cart')) {
             session()->forget('cart');
         }
         return redirect()->route('cart')->with('success', 'Item berhasil dihapus');
     }
+
+
+
+
 
     public function delAllCart()
     {
@@ -115,35 +167,38 @@ class CartController extends Controller
         return redirect()->route('cart')->with('success', 'Semua Item berhasil dihapus');
     }
 
-    public function editCart($id)
-    {
-        $nama = '';
-        $xtra = '';
-        $pack = '';
-        $size = '';
-        $qty = '';
-        $products = '';
 
-        if (session()->has('cart.' . $id)){
-            $products = Product::where('coffee_id', Product::where('id', $id)->first()->coffee_id)->get();
-            $nama = Coffee::Where('id', Product::Where('id', $id)->first()->coffee_id)->first()->nama;  // nama kopi
-            $xtra = Product::Where('id', $id)->first()->extrashot;                                      // xtrashot
-            $size = Size::Where('id', Product::Where('id', $id)->first()->size_id)->first()->nama;      // size
-            $pack = Pack::Where('id', Product::Where('id', $id)->first()->pack_id)->first()->nama;      // pack
-            $qty = session()->get('cart.' . $id . '.qty');                                              // quantity
-            $harga = Product::Where('id', $id)->first()->harga;                                         // harga
+
+
+
+    public function editCart(Request $request)
+    {
+        session()->forget('cart.' . $request->cart);
+        if (!session()->get('cart')) {
+            session()->forget('cart');
         }
 
-        return view('editcart',[
-            'products' => $products,
-            'all_size'     => Size::all(),
-            'all_pack'     => Pack::all(),
-            'nama' => $nama,
-            'xtra' => $xtra,
-            'pack' => $pack,
-            'size' => $size,
-            'qty' => $qty,
-            'harga' => $harga,
-        ]);
+        if ($request->extrashot) {
+            $xtra = true;
+        } else {
+            $xtra = false;
+        }
+        
+        $product = Product::where('coffee_id', $request->coffee)->where('size_id', $request->size)->where('pack_id', $request->pack)->where('extrashot', $xtra)->first();
+        if ($product) {
+            $qty = $request->quantity;
+            $id = $product->id;
+
+            if (session()->has('cart.' . $id)) {
+                $qty += session()->get('cart.' . $id . '.qty', $qty);
+                session()->put('cart.' . $id . '.qty', $qty);
+            } else {
+                session()->put('cart.' . $id . '.id', $id);
+                session()->put('cart.' . $id . '.qty', $qty);
+            }
+
+            return redirect()->route('cart');
+        }
+        return back()->with('fail', 'Produk Tak Ditemukan');
     }
 }

@@ -18,15 +18,15 @@
             @endif
 
             <div class="col-lg-6 textbox justify-content-center">
+                <h3>{{ strtoupper($name) }}</h3>
+                <p>{{ $desc }}</p>
+
+                {{-- Web View --}}
                 <form action={{ route('cart.add') }} method="POST">
                     @csrf
-                    <h3>{{ strtoupper($name) }}</h3>
-                    <p>{{ $desc }}</p>
                     <input type="hidden" name="coffee" value="{{$id}}">
-
-                    {{-- Web View --}}
                     <div class="adjusment">
-                        
+                    
                         {{-- Pack --}}
                         <div class="bottle-custom">
                             <p>BOTTLE</p>
@@ -72,12 +72,21 @@
                                 <input type="number" name="quantity" id="quantity" min="1" max="5">
                             </div>
                         </div>
+
                     </div>
 
+                    <div class="webview-addcart">
+                        <button type="submit" class="addtocart-button"> ADD TO CART </button>
+                    </div>
+                </form>
+
+                
+                {{-- Phone View --}}
+                <div class="adjustment-md">
+                    <form action={{ route('cart.add') }} method="POST">
+                        @csrf
+                        <input type="hidden" name="coffee" value="{{$id}}">
                     
-                    {{-- Phone View --}}
-                    <div class="adjustment-md">
-                        
                         {{-- Pack --}}
                         <div class="input-group bottle-input mb-3">
                             <label class="input-group-text" for="inputGroupSelect01">BOTTLE</label>
@@ -118,17 +127,14 @@
                             <label class="input-group-text" for="inputGroupSelect01">QUANTITY</label>
                             <input type="number" id="inputGroupSelect01" min="1" max="5">
                         </div>
-                    </div>
 
-                    <div class="textbox-button">
-                        {{-- <div class="productsum-button btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="add btn btn-dark">-</button>
-                            <div class="amount"><p>1</p></div>
-                            <button type="button" class="add btn btn-dark">+</button>
-                        </div> --}}
-                        <button type="submit" class="addtocart-button"> ADD TO CART </button>
-                    </div>
-                </form>
+                        <div class="phoneview-addcart">
+                            <button type="submit" class="addtocart-button"> ADD TO CART </button>
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
 
 

@@ -15,10 +15,42 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    // status = pending, waiting, processing, done
+    
     public function dashboard()
     {
-        return view('user.dashboard');
+        $alamat['jabodetabek']  = 0;
+        $alamat['kota']         = '';
+        $alamat['camat']        = '';
+        $alamat['kodepos']      = '';
+        $alamat['jalan']        = '';
+        $user = null;
+        
+        if (Auth::user()) {
+            $user['nama'] = Auth::user()->name;
+            $user['email'] = Auth::user()->email;
+            $user['whatsapp'] = Auth::user()->whatsapp;
+        }
+
+        if (Auth::user()->alamat && Auth::user()->ongkir) {
+            $data = explode(' ', Auth::user()->alamat);
+            if (Auth::user()->ongkir >= 20000) {$alamat['jabodetabek'] = 1;}    // JABODETABEK
+            $alamat['kota'] = $data[0];                                         // KOTA
+            $alamat['camat'] = $data[1];                                        // KECAMATAN
+            $alamat['kodepos'] = $data[count($data)-1];                         // KODE POS
+            for ($i=2; $i < count($data)-1; $i++) { $alamat['jalan'] = $alamat['jalan'] . " " . $data[$i]; }// JALAN
+        }
+
+        return view('user.dashboard',[
+           'alamat' => $alamat, 
+           'user' => $user, 
+        ]);
     }
+
+
+
+
+
     public function myOrders()
     {
         $order = array();
@@ -45,13 +77,13 @@ class UserController extends Controller
             }
 
             $order[$i]['trf'] = null;
-            if ( Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.jpg') )        {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.jpeg'))    {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.png'))     {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.bmp'))     {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.gif'))     {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.svg'))     {$order[$i]['trf'] = 1;}
-            else if (Storage::exists('trf/' . Auth::user()->id . '-order' . $order[$i]['id'] . '.webp'))    {$order[$i]['trf'] = 1;}
+            if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.jpg')) {
+                $order[$i]['trf'] = 1;
+            } else if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.jpeg')) {
+                $order[$i]['trf'] = 1;
+            } else if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.png')) {
+                $order[$i]['trf'] = 1;
+            }
             $i++;
         }
 
@@ -64,7 +96,7 @@ class UserController extends Controller
 
 
 
-    public function profile(Request $request)
+    public function profileAlamat(Request $request)
     {
         // Ongkir
         $dekat  = 5000;
@@ -100,9 +132,22 @@ class UserController extends Controller
 
         $user = User::find(Auth::user()->id);
 
-        $user->whatsapp = $request->whatsapp;
         $user->alamat = $alamat;
         $user->ongkir = $ongkir;
+        $user->save();
+
+        return back()->with('success', 'Profil berhasil diupdate');
+    }
+
+
+
+
+
+    public function profileIdentity(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        $user->whatsapp = $request->whatsapp;
         $user->save();
 
         return back()->with('success', 'Profil berhasil diupdate');
@@ -116,62 +161,43 @@ class UserController extends Controller
     {
         $status     = 'pending';
         $user_id    = Auth::user()->id;
-        $nama       = $request->nama;
+        $nama       = $request->name;
         $harga      = 0;
         $ongkir     = 0;
         $whatsapp   = $request->whatsapp;
         $email      = Auth::user()->email;
-        $alamat     = '';
+        $alamat     = "";
 
-        // Alamat
+        // Ongkir
         $dekat  = 5000;
         $medium = 7500;
         $jauh   = 10000;
         $luar   = 20000;
-        if (!Auth::user()->alamat) {
-            // belom keisi
-            $alamat = $nama . ' ' . $request->jabodetabek;
-            $alamat = $alamat . ' ' . $request->kota;
-            $alamat = $alamat . ' ' . $request->kecamatan;
-            $alamat = $alamat . ' ' . $request->kelurahan;
-            $alamat = $alamat . ' ' . $request->alamat;
-            $alamat = $alamat . ' ' . $request->kodepos;
-            if ($request->jabodetabek == "dalam") {
-                if ($request->kota == 'kota1') {
-                    $ongkir = $dekat;
-                } else if ($request->kota == 'kota2') {
-                    $ongkir = $medium;
-                } else if ($request->kota == 'kota3') {
-                    $ongkir = $jauh;
-                }
-            } else if ($request->jabodetabek == "luar") {
-                $ongkir = $luar;
+        if ($request->jabodetabek == "dalam") {
+            if ($request->kota == 'kota1') {
+                $ongkir = $dekat;
+            } else if ($request->kota == 'kota2') {
+                $ongkir = $medium;
+            } else if ($request->kota == 'kota3') {
+                $ongkir = $jauh;
             }
-        } else {
-            if ($request->override) {
-                // udah keisi tp override
-                $alamat = $nama . ' ' . $request->jabodetabek;
-                $alamat = $alamat . ' ' . $request->kota;
-                $alamat = $alamat . ' ' . $request->kecamatan;
-                $alamat = $alamat . ' ' . $request->kelurahan;
-                $alamat = $alamat . ' ' . $request->alamat;
-                $alamat = $alamat . ' ' . $request->kodepos;
-                if ($request->jabodetabek == "dalam") {
-                    if ($request->kota == 'kota1') {
-                        $ongkir = $dekat;
-                    } else if ($request->kota == 'kota2') {
-                        $ongkir = $medium;
-                    } else if ($request->kota == 'kota3') {
-                        $ongkir = $jauh;
-                    }
-                } else if ($request->jabodetabek == "luar") {
-                    $ongkir = $luar;
-                }
-            } else {
-                // udah keisi
-                $alamat = $nama . ' ' . Auth::user()->alamat;
-                $ongkir = Auth::user()->ongkir;
-            }
+        } else if ($request->jabodetabek == "luar") {
+            $ongkir = $luar;
+        }
+
+        // Alamat
+        $alamat = ucwords($request->kota);
+        if ($request->kecamatan) {
+            $alamat = $alamat . " " . ucwords($request->kecamatan);
+        }
+        if ($request->kelurahan) {
+            $alamat = $alamat . " " . ucwords($request->kelurahan);
+        }
+        if ($request->alamat) {
+            $alamat = $alamat . " " . ucwords($request->alamat);
+        }
+        if ($request->kodepos) {
+            $alamat = $alamat . " " . $request->kodepos;
         }
 
         // Cek stock dan ngitung Harga
@@ -239,16 +265,18 @@ class UserController extends Controller
     }
 
 
+
+
+
     public function uploadtrf(Request $request)
     {
-        $request->validate(['trf' => 'image',]);
+        $request->validate(['trf' => 'image']);     //jpg,jpeg,png
         $user = User::find(Auth::user()->id);
-        $order = Order::where('id', $request->id)->first();
-
+        $order = Order::find($request->id);
 
         if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
-            // 1-order1.jpg
-            $namafile = $user->id . '-order' . $order->id . '.' . $request->file('trf')->extension();
+            // 1-user1.jpg
+            $namafile = $order->id . '-user' . $user->id . '.' . $request->file('trf')->extension();
             $request->file('trf')->storeAs('trf', $namafile);
 
             $order->status = "waiting";

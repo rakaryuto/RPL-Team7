@@ -6,7 +6,6 @@ p {
     font-size: 18px;
 }
 
-
 /* Landing Page */
 #landing {
     height: 75vh;
@@ -100,11 +99,6 @@ h3 {
     width: 30px;
     margin: 20px 0px;
 }
-
-
-
-
-
 
 @media screen and (max-width:992px) {
 
@@ -214,5 +208,17 @@ h3 {
 
     .contact a img {
         width: 25px;
+    }
+}
+
+@media (max-width:992px) {
+    .webview-addcart {
+        display: none;
+    }
+}
+
+@media (min-width:992px) {
+    .phoneview-addcart {
+        display: none;
     }
 }
