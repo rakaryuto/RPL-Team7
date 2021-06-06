@@ -68,11 +68,12 @@ Route::prefix('admin')->group(function () {
 
     // Products
     Route::get('/products', [AdminController::class, 'indexProducts']);
-    Route::get('/products/{id}', [AdminController::class, 'indexEdit']);
-    Route::post('/products/{id}', [AdminController::class, 'edit'])->name('admin.saveChanges');
-    Route::get('/products/delete/{id}', [AdminController::class, 'delete'])->name('admin.productDelete');
+    Route::get('/products/{id}', [AdminController::class, 'indexEditProd']);
+    Route::post('/products/edit', [AdminController::class, 'editProduct'])->name('admin.editProduct');
     
     // Orders
     Route::get('/orders', [AdminController::class, 'indexOrders']);
-    Route::patch('/orders/{id}', [AdminController::class, 'confirm']);
+    Route::get('/orders/{id}', [AdminController::class, 'indexEditOrder']);
+    Route::post('/orders/edit', [AdminController::class, 'editOrder'])->name('admin.editOrder');
+    Route::get('/orders/trf/{id}', [AdminController::class, 'getPic']);
 });

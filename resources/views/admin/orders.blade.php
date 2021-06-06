@@ -7,77 +7,51 @@
 @endsection
 
 @section('content')
-
 <style>
     th, td {
         border: 1px solid black;
+        padding: 1em;
+    }
+
+    table {
+        width: 100%;
     }
 </style>
 
 <h1 class="text-center">Orders</h1>
 
 <div id="container" class="text-center">
-    <table style="width: 100%">
-    
+    @if (session()->has('success'))
+        <div class="alert alert-success">{{ session()->get('success') }}</div>
+    @endif
+    @if (session()->has('fail'))
+        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+    @endif
+
+    <table>
         <tr>
             <th>Order ID</th>
             <th>User ID</th>
-            <th>Name</th>
-            <th>Whatsapp No.</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Subtotal</th>
-            <th>Postage</th>
-            <th>Total</th>
-            <th>Payment Slip</th>
             <th>Status</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Total</th>
+            <th>Actions</th>
         </tr>
-    
         
         @foreach ($orders as $item)
-            <tr>
-                <td>{{ $item->id }}</td>
-                <td>{{ $item->user_id}}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->whatsapp }}</td>
-                <td>{{ $item->email }}</td>
-                <td>{{ $item->alamat }}</td>
-                <td>{{ $item->harga }}</td>
-                <td>{{ $item->ongkir }}</td>
-                <td>{{ $item->harga + $item->ongkir }}</td>
-                <td></td>
-                <td>
-                    @if ($item->status == "waiting")
-                        <form action="/admin/orders/{{ $item->id }}" method="post">
-                            @method('patch')
-                            @csrf
-                            <input type="hidden" name="id" value="{{$item->id}}">
-                            <input type="hidden" name="status" value="Confirmed">
-                            <input type="submit" name="confirm" value="Confirm">
-                        </form>
-                        <br>
-                        <form action="/admin/orders/{{ $item->id }}" method="post">
-                            @method('patch')
-                            @csrf
-                            <input type="hidden" name="id" value="{{$item->id}}">
-                            <input type="hidden" name="status" value="Rejected">
-                            <input type="submit" name="confirm" value="Reject">
-                        </form>
-                    @else
-                        {{ $item->status }}
-                        <form action="/admin/orders/{{ $item->id }}" method="post">
-                            @method('patch')
-                            @csrf
-                            <input type="hidden" name="id" value="{{$item->id}}">
-                            <input type="hidden" name="status" value="waiting">
-                            <input type="submit" name="confirm" value="Cancel">
-                        </form>
-                    @endif
-                </td>
-            </tr>
+        <tr>
+            <td>{{ $item->id }}</td>
+            <td>{{ $item->user_id }}</td>
+            <td>{{ ucwords($item->status) }}</td>
+            <td>{{ $item->nama }}</td>
+            <td>{{ $item->alamat }}</td>
+            <td>{{ number_format($item->harga + $item->ongkir) }}</td>
+            <td><a href="/admin/orders/{{ $item->id }}" class="btn btn-link">Details</a></td>
+        </tr>
         @endforeach
-        
     </table>
-    </div>
-    
+
+    <div style="height: 2em"></div>
+</div>
 @endsection

@@ -7,14 +7,14 @@
 @endsection
 
 @section('content')
-
-<h1 class="text-center">Admin Kopikimo</h1>
-
-<center>
-	<div>
-		<a href="/admin/products"><button>PRODUCTS</button></a><br><br>
-		<a href="/admin/orders"><button>ORDERS</button></a><br>
+<section class="container">
+	<h1 class="text-center">Admin Kopikimo</h1>
+	
+	<div class="d-flex flex-column">
+		<a href="/admin/products" class="btn btn-dark mt-3">PRODUCTS</a>
+		<a href="/admin/orders" class="btn btn-dark mt-3">ORDERS</a>
 	</div>
-</center>
+</section>
+
 
 @endsection

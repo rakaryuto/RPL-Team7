@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
-{
-    // status = pending, waiting, processing, done
-    
+{    
     public function dashboard()
     {
         $alamat['jabodetabek']  = 0;
@@ -77,11 +75,11 @@ class UserController extends Controller
             }
 
             $order[$i]['trf'] = null;
-            if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.jpg')) {
+            if (Storage::exists('trf/' . $order[$i]['id'] . '.jpg')) {
                 $order[$i]['trf'] = 1;
-            } else if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.jpeg')) {
+            } else if (Storage::exists('trf/' . $order[$i]['id'] . '.jpeg')) {
                 $order[$i]['trf'] = 1;
-            } else if (Storage::exists('trf/' . $order[$i]['id'] . '-user' . Auth::user()->id . '.png')) {
+            } else if (Storage::exists('trf/' . $order[$i]['id'] . '.png')) {
                 $order[$i]['trf'] = 1;
             }
             $i++;
@@ -275,8 +273,8 @@ class UserController extends Controller
         $order = Order::find($request->id);
 
         if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
-            // 1-user1.jpg
-            $namafile = $order->id . '-user' . $user->id . '.' . $request->file('trf')->extension();
+            // 1.jpg
+            $namafile = $order->id . '.' . $request->file('trf')->extension();
             $request->file('trf')->storeAs('trf', $namafile);
 
             $order->status = "waiting";
