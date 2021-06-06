@@ -13,6 +13,9 @@
     <div class="banner container">
         <div class="row content">
 
+            @if ( session()->has('fail') )
+                <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+            @endif
 
             <div class="col-lg-6 textbox justify-content-center">
                 <form action={{ route('cart.add') }} method="POST">
@@ -21,10 +24,6 @@
                     <p>{{ $desc }}</p>
                     <input type="hidden" name="coffee" value="{{$id}}">
 
-                    @if (session()->has('fail'))
-                        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
-                    @endif
-                    
                     {{-- Web View --}}
                     <div class="adjusment">
                         

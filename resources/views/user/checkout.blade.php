@@ -14,6 +14,11 @@
 @endsection
 
 @section('content')
+
+    @if ( session()->has('fail') )
+        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+    @endif
+
     <form action="{{ route('placeorder') }}" method="POST">
         @csrf
         <div>

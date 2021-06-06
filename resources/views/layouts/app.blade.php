@@ -11,8 +11,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    @yield('head')
+    @yield('head','<link rel="stylesheet" href="{{ asset('css/style.css') }}">')
 
     <title>@yield('title','Kopikimo')</title>
 </head>

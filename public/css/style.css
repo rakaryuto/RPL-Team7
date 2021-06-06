@@ -8,79 +8,80 @@ body {
     background-color: #F1EEE9;
 }
 
-h2{
+h2 {
     font-size: 70px;
 }
 
-h3{
+h3 {
     font-size: 50px;
-}   
+}
 
-p{
+p {
     letter-spacing: 0.1rem;
     font-size: 16px;
 }
 
 
 /* Navigation Bar */
-header{
+header {
     height: 15vh;
 }
-.navbar{   
-    margin : 10px 0px;
+
+.navbar {
+    margin: 10px 0px;
 }
 
-.nav-right .navbar-nav .nav-item{
+.nav-right .navbar-nav .nav-item {
     margin: 0px 30px;
 }
 
-.nav-right .navbar-nav .nav-item a{
+.nav-right .navbar-nav .nav-item a {
     letter-spacing: 0.1em;
     font-weight: 600;
     color: #001;
 }
 
 
-.nav-left .navbar-nav .nav-item{
+.nav-left .navbar-nav .nav-item {
     margin: 0px 40px;
 }
 
-.nav-left .navbar-nav .nav-item a{
+.nav-left .navbar-nav .nav-item a {
     letter-spacing: 0.1em;
     color: #001;
     font-weight: 600;
 }
 
 /* Landing Page */
-#landing{
+#landing {
     height: 85vh;
 }
 
-.container{
+.container {
     align-items: center;
 }
 
-.banner{
+.banner {
     margin-top: 5vh;
     margin-bottom: 10vh;
 }
 
-.content{
+.content {
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.content h2{
+.content h2 {
     margin-bottom: 10%;
 }
 
-.textbox p{
+.textbox p {
     margin-bottom: 15%;
     color: #001;
 }
 
-.textbox button{
+.textbox button {
     font-size: 14px;
     padding: 10px 60px;
     background-color: #001;
@@ -91,7 +92,7 @@ header{
 .contact {
     position: fixed;
     left: 95%;
-    top : 30vh;
+    top: 30vh;
     display: flex;
     width: 10%;
     flex-direction: column;
@@ -99,30 +100,31 @@ header{
 
 .contact a img {
     width: 30px;
-    margin : 20px 0px;
+    margin: 20px 0px;
 }
 
 /* Testimonials */
 
-#testimonials{
+#testimonials {
     height: 80vh;
     background-color: #001;
 }
-#testimonials .container{
+
+#testimonials .container {
     padding-top: 5vh;
     justify-content: center;
     align-items: center;
 }
 
-#testimonials h3{
+#testimonials h3 {
     color: #F1EEE9;
 }
 
-#testimonials p{
+#testimonials p {
     color: #F1EEE9;
 }
 
-#testimonials .content{
+#testimonials .content {
     align-items: center;
     margin-top: 15vh;
     height: 100vh;
@@ -130,7 +132,7 @@ header{
 }
 
 
-.carousel-control-prev{
+.carousel-control-prev {
     position: absolute;
     left: -1px;
 }
@@ -140,13 +142,13 @@ header{
 }
 
 .carousel-item {
-    width : 80%;
+    width: 80%;
     margin-left: 10%;
 }
 
 /* Menu */
 
-#menu{
+#menu {
     height: 100vh;
 }
 
@@ -155,15 +157,15 @@ header{
     margin-bottom: 5vh;
 }
 
-#menu .container{
+#menu .container {
     padding-top: 4vh;
 }
 
 .card {
-    margin : 10px 15px;
+    margin: 10px 15px;
 }
 
-.card-img-top{
+.card-img-top {
     margin-top: 10px;
 }
 
@@ -172,61 +174,58 @@ header{
     margin-bottom: 50px;
 }
 
-/* .card-body button{
-    
-} */
-
-.card-text img{
+.card-text img {
     width: 18px;
 }
+
 @media screen and (max-width:991px) {
 
 
-    p{
+    p {
         font-size: 14px;
         letter-spacing: 0.1em;
     }
-    .content 
-    {
+
+    .content {
         display: flex;
         flex-direction: column-reverse;
     }
 
-    .navbar-brand img{
+    .navbar-brand img {
         width: 70%;
     }
 
-    .nav-right .navbar-nav .nav-item a{
+    .nav-right .navbar-nav .nav-item a {
         letter-spacing: 0.1em;
         font-weight: 600;
         font-size: 14px;
     }
 
-    .nav-left .navbar-nav .nav-item a{
+    .nav-left .navbar-nav .nav-item a {
         letter-spacing: 0.1em;
         font-weight: 600;
         font-size: 14px;
     }
 
-    .banner{
+    .banner {
         margin-top: 10px;
     }
 
-    .content{
+    .content {
         margin-top: 5px;
     }
 
     .imgbox img {
-        width : 30%;
+        width: 30%;
         margin-bottom: 5%;
     }
 
-    .textbox h2{
+    .textbox h2 {
         font-size: 50px;
         margin-bottom: 5%;
     }
 
-    .textbox p{
+    .textbox p {
         margin-bottom: 50px;
         color: #001;
     }
@@ -235,21 +234,26 @@ header{
         margin-bottom: 30px;
     }
 
-    .contact{
+    .contact {
         left: 90%;
     }
-    .contact a img{
-        width: 25px;
-    }   
 
-    #testimonials .content{
+    .contact a img {
+        width: 25px;
+    }
+
+    #testimonials .content {
         align-items: center;
         margin-top: 5vh;
         height: 70vh;
         justify-content: center;
     }
 
-    h3{
+    h2 {
+        font-size: 50px;
+    }
+
+    h3 {
         font-size: 30px;
     }
 
@@ -263,5 +267,4 @@ header{
         align-items: center;
         justify-content: center;
     }
-
 }

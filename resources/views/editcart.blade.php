@@ -1,18 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    
-
     <h1>
         Edit {{ $nama }}
         @if ($xtra)
         With Extra Shot
         @endif
     </h1>
-
-
     <div class="d-flex mt-4">
-
         <div class="flex-fill">
             <h4 class="fw-bold">BOTTLE</h4>
             <fieldset id="bottle-custom-choose">
@@ -27,7 +22,6 @@
                 @endforeach
             </fieldset>
         </div>
-
         <div class="flex-fill">
             <h4 class="fw-bold">SIZE</h4>
             <fieldset id="size-custom-choose">
@@ -42,18 +36,14 @@
                 @endforeach
             </fieldset>
         </div>
-
         <div class="flex-fill">
             <h4 class="fw-bold">QUANTITY</h4>
             <input type="number" value="{{ $qty }}" min="1" max="5" id="qty">
         </div>
-
         <div class="flex-fill">
             <h4 class="fw-bold">PRICE</h4>
             <div id="harga"> {{ $harga }}</div>
         </div>
-
     </div>
 @endsection
-
 {{-- TINGGAL SCRIPT HARGA --}}

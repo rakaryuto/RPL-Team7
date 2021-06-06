@@ -8,12 +8,7 @@
 <section id="landing">
     <div class="container">
         <div class="accordion" id="accordionPanelsStayOpenExample">
-            
-            
-            
-            
             <div class="profile accordion-item">
-                
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
@@ -24,7 +19,6 @@
                         </div>
                     </button>
                 </h2>
-
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
@@ -42,12 +36,7 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-
-
-
-
             <div class="address accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -97,10 +86,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
             <div class="cart accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -112,7 +97,6 @@
                         </div>
                     </button>
                 </h2>
-
                 @if ($product && $total)
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingOne">
@@ -180,12 +164,7 @@
                     </div>
                 </div>    
                 @endif
-                
             </div>
-
-
-
-
         </div>
     </div>
 </section>
