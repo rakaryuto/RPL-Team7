@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MenuController;
@@ -55,3 +56,23 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/test', [CartController::class, 'test']);
+
+// Admin
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+
+    // Auth
+    Route::get('/login', [AdminController::class, 'indexLogin']);
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.authlogin');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+    // Products
+    Route::get('/products', [AdminController::class, 'indexProducts']);
+    Route::get('/products/{id}', [AdminController::class, 'indexEdit']);
+    Route::post('/products/{id}', [AdminController::class, 'edit'])->name('admin.saveChanges');
+    Route::get('/products/delete/{id}', [AdminController::class, 'delete'])->name('admin.productDelete');
+    
+    // Orders
+    Route::get('/orders', [AdminController::class, 'indexOrders']);
+    Route::patch('/orders/{id}', [AdminController::class, 'confirm']);
+});
