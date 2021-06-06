@@ -92,6 +92,7 @@
                             <input type="hidden" name="status" value="waiting">
                             <input type="submit" name="confirm" value="Cancel">
                         </form>
+                        @if ($item->status == "Confirmed") 
                         <form action="/admin/orders/{{ $item->id }}" method="post">
                             @method('patch')
                             @csrf
@@ -99,6 +100,7 @@
                             <input type="hidden" name="status" value="Sent">
                             <input type="submit" name="confirm" value="Sent">
                         </form>
+                        @endif
                     @endif
                 </td>
             </tr>
