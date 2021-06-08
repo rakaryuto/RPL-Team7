@@ -89,5 +89,6 @@
 
 ### Negative Cases
 - Akan kalah saing oleh aplikasi ojek online jika pemesan memiliki lokasi yang bisa dijangkau oleh ojek online tersebut
+- Beberapa orang merasa kesusahan untuk memesan jika terbiasa menggunakan e-commerce lain
 
 ## Saran untuk pengembangan selanjutnya
