@@ -44,6 +44,7 @@
 
 ## Hasil dan Pembahasan
 ### Use case diagram
+[UCD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Untitled%20Diagram-Page-1%20(3).png)
 ### Activity diagram
 ### Class diagram
 ### Entity Relationship Diagram
@@ -54,6 +55,7 @@
 ## Hasil implementasi
 ### Screenshot sistem
 ![PC](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot%20(297).png)
+![Smartphone](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot_2021-06-07-11-08-46-545_com.android.chrome.jpg)
 ### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
 
 ## Testing (Test cases)
