@@ -64,6 +64,15 @@
 | ---- | ------ | ---- | ------ | ------ |
 | Potential Customer | Memasukkan produk ke halaman cart | Mengetahui info produk | Melakukan pembaruan kuantitas produk di cart | Menghapus produk di cart |
 | | Memasukkan produk untuk dibeli langsung | Mengetahui info testimoni | Melakukan pembaruan terhadap spesifikasi produk | |
+| | Memasukkan bukti pembayaran | melihat harga produk | | |
+| | | Melihat harga produk | | |
+| | | Melihat harga ongkos kirim | | |
+| | | Mengetahui keseluruhan harga | | |
+| | | Mengetahui alamat pengiriman uang (rekening penjual) | | |
+| | | Mengetahui kondisi pengiriman | | |
+| Admin | | Melihat tabel produk | Mengganti harga produk | |
+| | | Melihat tabel pemesanan | Mengganti jumlah stok produk | |
+| | | Melihat bukti pembayaran | Mengonfirmasi pembayaran | |
 
 
 ## Hasil implementasi
