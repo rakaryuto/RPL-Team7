@@ -1,10 +1,11 @@
 <h1>RPL Tim 7 | [Kopikimo](http://fathomless-fortress-50783.herokuapp.com)</h1>
 
-Paralel 1
-Nama Asisten:
-    1. Indah Puspita
-    2. Qoriatul Khairunnisa
-    
+<h2>Paralel 1</h2>
+<h2>Asisten Praktikum</h2>
+<ol>
+    <li>Indah Puspita</li>
+    <li>Qoriatul Khairunnisa</li>
+</ol>    
 - Akaasyah Nurfath (indo14nurfath@apps.ipb.ac.id)                   | Backend Developer
 - Muhammad Alifio Ghitrif Al'bazij (alifioghitrif@apps.ipb.ac.id)   | UI/UX Designer
 - Andra Setiyo Wicaksono (andrawicaksono@apps.ipb.ac.id)            | Backend Developer
