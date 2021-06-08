@@ -1,4 +1,4 @@
-<h1>RPL Tim 7 | [Kopikimo](http://fathomless-fortress-50783.herokuapp.com)</h1>
+<h1>RPL Tim 7 | <a href="http://fathomless-fortress-50783.herokuapp.com">Kopikimo</a></h1>
 
 <h2>Paralel 1</h2>
 
