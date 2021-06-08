@@ -30,7 +30,6 @@
     <li>Sebagai pembeli, saya ingin melihat list produk yang dijual agar saya dapat memilih produk yang akan saya beli.</li>
     <li>sebagai pembeli saya ingin memiliki kendali penuh untuk mengatur keranjang saya agar saya dapat memutuskan untuk membeli produk atau tidak.</li>
     <li>sebagai pembeli, saya ingin melakukan pembayaran produk yang saya beli agar transaksi saya sukses.</li>
-    
     <li>sebagai penjual, saya ingin mengelola produk yang saya jual agar produk lebih tertata.</li>
     <li>sebagai penjual saya ingin memasukkan konten toko saya agar pelanggan mendapat manfaat dari konten tersebut.</li>
     <li>sebagai penjual saya ingin melihat data penjualan saya agar saya mengetahui penjualan saya.</li>
