@@ -60,6 +60,11 @@
 ### Arsitektur sistem
 ### Fungsi utama yang dikembangkan
 ### Fungsi CRUD
+| User | Create | Read | Update | Delete |
+| ---- | ------ | ---- | ------ | ------ |
+| Potential Customer | Memasukkan produk ke halaman cart | Mengetahui info produk | Melakukan pembaruan kuantitas produk di cart | Menghapus produk di cart |
+| | Memasukkan produk untuk dibeli langsung | Mengetahui info testimoni | Melakukan pembaruan terhadap spesifikasi produk | |
+
 
 ## Hasil implementasi
 ### Screenshot sistem
