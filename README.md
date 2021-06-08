@@ -44,7 +44,7 @@
 
 ## Hasil dan Pembahasan
 ### Use case diagram
-[UCD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Untitled%20Diagram-Page-1%20(3).png)
+![UCD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Untitled%20Diagram-Page-1%20(3).png)
 ### Activity diagram
 ### Class diagram
 ### Entity Relationship Diagram
