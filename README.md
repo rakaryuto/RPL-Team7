@@ -54,6 +54,7 @@
 ### Activity diagram
 ### Class diagram
 ### Entity Relationship Diagram
+![ERD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/messageImage_1620012973058.jpg)
 ### Arsitektur sistem
 ### Fungsi utama yang dikembangkan
 ### Fungsi CRUD
