@@ -36,14 +36,17 @@
 - Design: Figma
 - Database: MySQL
 - Localhost: Apache
+
+### Hardware
+- RAM: 8GB
+- CPU
+- 
+
+### Tech Stack
 - Web Hosting: Heroku
 - Version Control System: Github, Git
 - Project Management: Trello
 - Lain-lain: HTML, CSS, Javascript, PHP
-
-### Hardware
-
-### Tech Stack
 
 ## Hasil dan Pembahasan
 ### Use case diagram
