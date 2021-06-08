@@ -82,6 +82,7 @@
 ### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
 
 ## Testing (Test cases)
+
 ### Positive Cases
 - Penjual bisa mengetahui lebih cepat pesanan yang ada
 - Pembeli tidak perlu menanyakan stok barang dan menu karena sudah tertera di website
@@ -89,6 +90,6 @@
 
 ### Negative Cases
 - Akan kalah saing oleh aplikasi ojek online jika pemesan memiliki lokasi yang bisa dijangkau oleh ojek online tersebut
-- Beberapa orang kemungkinan merasa bingung untuk memesan jika terbiasa menggunakan e-commerce lain
 
 ## Saran untuk pengembangan selanjutnya
+- Sebaiknya dikembangkan lebih baik, lebih matang ,dan lebih rapi lagi supaya pembeli dan penjual akan nyaman dengan eksistensi website Kopikimo.
