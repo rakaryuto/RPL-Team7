@@ -10,11 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    @yield('head')
-
     <title>@yield('title','Kopikimo')</title>
+
+    @hasSection('head')
+        @yield('head')
+    @else
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @endif
+
 </head>
 
 <body>
@@ -36,23 +39,29 @@
             </button>
 
 
-            @hasSection('navbuttons')
-            @yield('navbuttons')
-            @else
+            
             <div class="nav-left collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav text-center">
-                    <li class="nav-item">
-                        <a href="{{ route('index').'#landing' }}" class="nav-link">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('index').'#testimonials' }}" class="nav-link">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('index').'#menu' }}" class="nav-link">MENU</a>
-                    </li>
+                    @hasSection('navbuttons')
+                        @yield('navbuttons')
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('index').'#landing' }}" class="nav-link">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('index').'#testimonials' }}" class="nav-link">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('index').'#menu' }}" class="nav-link">MENU</a>
+                        </li>
+                    @endif
+                    @auth
+                        <li class="nav-item">
+                            <a href="{{ route('myOrders') }}" class="nav-link">MY ORDERS</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
-            @endif
 
 
 

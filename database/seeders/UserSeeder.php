@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
             'email' => 'admin@ittoday.id',
             'password' => Hash::make('admin123'),
             'whatsapp' => '089608703393',
-            'alamat' => 'Kota1 Ciampea Benteng Jl. Dadali Blok G11 BTN Puskopad 16620',
-            'ongkir' => 5000,
+            'alamat' => null,
+            'ongkir' => null,
         ]);
 
         User::create([

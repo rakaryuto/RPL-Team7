@@ -1,127 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('style.css');
 
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: #F1EEE9;
-}
-h2{
-    font-size: 70px;
-}
-
-h3{
-    font-size: 50px;
-}   
-
-p{
-    letter-spacing: 0.1rem;
+p {
     font-size: 18px;
 }
 
-
-/* Navigation Bar */
-
-header{
-    height: 15vh;
-}
-
-.navbar{   
-    margin : 10px 0px;
-}
-
-.nav-right .navbar-nav .nav-item{
-    margin: 0px 30px;
-}
-
-.nav-right .navbar-nav .nav-item a{
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    color: #001;
-}
-
-
-.nav-left .navbar-nav .nav-item{
-    margin: 0px 40px;
-}
-
-.nav-left .navbar-nav .nav-item a{
-    letter-spacing: 0.1em;
-    color: #001;
-    font-weight: 600;
-}
-
 /* Landing Page */
-#landing{
+#landing {
     height: 75vh;
 }
 
-.container{
-    align-items: center;
+h3 {
+    margin-bottom: 5%;
 }
 
-.banner{
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+.textbox p {
+    color: #001;
 }
 
-.content{
+.description {
+    margin-bottom: 10%;
+}
+
+.price {
+    margin-bottom: 5px;
+}
+
+.textbox button {
+    width: 35%;
+    background-color: #001;
+    color: #F1EEE9;
+}
+
+.productsum-button {
+    width: 20%;
+}
+
+.productsum-button .amount {
+    width: 50%;
+    border: #001;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.productsum-button .amount .button {
     justify-content: center;
     align-items: center;
 }
 
-h3{
-    margin-bottom: 5%;
+.textbox-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.textbox p{
-    color: #001;
-    margin-bottom: 10%;
-}
-
-.textbox button{
-    font-size: 14px;
-    padding: 10px 70px;
-    background-color: #001;
-    color: #F1EEE9;
-    border: none;
-}
-
-.adjusment{
+.adjusment {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10%;
 }
 
-.adjustment-md{
+.adjustment-md {
     display: none;
 }
 
 
-.adjust-input{
+.adjust-input {
     display: flex;
     flex-direction: column;
 }
 
-.adjust-item{
+.adjust-item {
     margin-bottom: 10%;
 }
 
-.adjust-item input{
+.adjust-item input {
     opacity: 0;
 }
 
 .checkmark {
-    padding : 40px;
+    padding: 40px;
     background-color: #eee;
     border: #001;
-  }
+}
 
 .contact {
     position: fixed;
     left: 95%;
-    top : 30vh;
+    top: 30vh;
     display: flex;
     width: 10%;
     flex-direction: column;
@@ -129,13 +97,8 @@ h3{
 
 .contact a img {
     width: 30px;
-    margin : 20px 0px;
+    margin: 20px 0px;
 }
-
-
-
-
-
 
 @media screen and (max-width:992px) {
 
@@ -143,93 +106,92 @@ h3{
         font-size: 50px;
     }
 
-    h3{
+    h3 {
         font-size: 30px;
     }
 
-    p{
+    p {
         font-size: 14px;
         letter-spacing: 0.1em;
     }
 
-    .content 
-    {
+    .content {
         display: flex;
         flex-direction: column-reverse;
     }
 
-    .navbar-brand img{
+    .navbar-brand img {
         width: 70%;
     }
 
-    .nav-right .navbar-nav .nav-item a{
+    .nav-right .navbar-nav .nav-item a {
         letter-spacing: 0.1em;
         font-weight: 600;
         font-size: 14px;
     }
 
-    .nav-left .navbar-nav .nav-item a{
+    .nav-left .navbar-nav .nav-item a {
         letter-spacing: 0.1em;
         font-weight: 600;
         font-size: 14px;
     }
 
-    .banner{
+    .banner {
         margin-top: 10px;
     }
 
-    .content{
+    .content {
         margin-top: 5px;
     }
 
     .imgbox img {
-        width : 30%;
+        width: 30%;
         margin-bottom: 5%;
     }
 
-    .textbox h2{
+    .textbox h2 {
         margin-bottom: 5%;
     }
 
-    .textbox p{
-        margin-bottom: 50px;
-        color: #001;
+    .description {
+        margin-bottom: 10%;
     }
 
-    .textbox-button{
+    .textbox-button {
         display: flex;
         justify-content: space-around;
+        margin-bottom: 20px;
     }
 
-    .adjusment{
+    .adjusment {
         display: none;
     }
 
-    .adjustment-md{
+    .adjustment-md {
         display: flex;
-        flex-direction: column; 
-        margin: 30px 0px;    
+        flex-direction: column;
+        margin: 30px 0px;
     }
 
-    .input-group{
-        margin : 5px 0px;
+    .input-group {
+        margin: 5px 0px;
         background-color: #001;
         color: #F1EEE9;
         border-radius: 10px;
     }
 
-    .input-group-text{
+    .input-group-text {
         background-color: #001;
         color: #F1EEE9;
     }
 
-    .form-select{
-        background-color:#F1EEE9 ;
+    .form-select {
+        background-color: #F1EEE9;
         color: #001;
     }
 
-    .bottle-input label{
-        padding : 0px 40px;
+    .bottle-input label {
+        padding: 0px 40px;
     }
 
     .size-input label {
@@ -237,14 +199,26 @@ h3{
     }
 
     .shots-input label {
-        padding : 0px 20px;
+        padding: 0px 20px;
     }
 
-    .contact{
+    .contact {
         left: 90%;
     }
 
-    .contact a img{
+    .contact a img {
         width: 25px;
-    }   
+    }
+}
+
+@media (max-width:992px) {
+    .webview-addcart {
+        display: none;
+    }
+}
+
+@media (min-width:992px) {
+    .phoneview-addcart {
+        display: none;
+    }
 }

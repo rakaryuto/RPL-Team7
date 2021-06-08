@@ -1,25 +1,22 @@
 @extends('layouts.app')
 
 @section('navbuttons')
-<div class="nav-left collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav text-center">
-        <li class="nav-item">
-            <a href="#landing" class="nav-link">HOME</a>
-        </li>
-        <li class="nav-item">
-            <a href="#testimonials" class="nav-link">ABOUT US</a>
-        </li>
-        <li class="nav-item">
-            <a href="#menu" class="nav-link">MENU</a>
-        </li>
-    </ul>
-</div>
+<li class="nav-item">
+    <a href="#landing" class="nav-link">HOME</a>
+</li>
+<li class="nav-item">
+    <a href="#testimonials" class="nav-link">ABOUT US</a>
+</li>
+<li class="nav-item">
+    <a href="#menu" class="nav-link">MENU</a>
+</li>
 @endsection
 
 @section('content')
 <section id="landing">
     <div class="banner container">
         <div class="row content">
+
             <div class="col-lg-6 textbox justify-content-center">
                 <h2>KOPIKIMO</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nobis ea qui animi recusandae,
@@ -27,9 +24,11 @@
                     repellendus neque.</p>
                 <a href="#menu"><button>GO TO SHOP</button></a>
             </div>
+
             <div class="imgbox col-lg-6 text-center">
                 <img src="{{ asset('asset/Photo.svg') }}" alt="" srcset="">
             </div>
+
             <div class="contact">
                 <a href="" class="whatsapp">
                     <img src="{{ asset('asset/WhatsApp.svg') }}" alt="" srcset="">
@@ -41,6 +40,7 @@
                     <img class="twitter-img" src="{{ asset('asset/Vector (2).svg') }}" alt="" srcset="">
                 </a>
             </div>
+
         </div>
     </div>
 </section>
@@ -95,11 +95,12 @@
 <section id="menu">
     <div class="container">
         <h3>Beverages</h3>
-
         <div class="row menu-bar baverages">
+            
             @foreach ($coffees as $item)
             <div class="card col-lg-3 col-md-4 col-sm-4" style="width: 18rem;">
-                <img src="{{ asset('asset/Photo.svg') }}" class="card-img-top" alt="..." style="width: 30%;">
+                <img src="{{ asset('asset/'.$item->nama.'.png') }}" class="card-img-top img-fluid"
+                    alt="Photo Unavailable">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->nama }}</h5>
                     <p class="card-text">{{ Str::limit($item->deskripsi, 50, '...') }}</p>
@@ -108,7 +109,7 @@
                 </div>
             </div>
             @endforeach
-        </div>
 
+        </div>
 </section>
 @endsection

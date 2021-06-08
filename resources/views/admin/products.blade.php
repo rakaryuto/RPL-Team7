@@ -11,14 +11,25 @@
 <style>
     th, td {
         border: 1px solid black;
+        padding: 1em;
+    }
+
+    table {
+        width: 100%;
     }
 </style>
 
 <h1 class="text-center">Products</h1>
 
 <div id="container" class="text-center">
-    <table style="width: 100%">
-    
+    @if (session()->has('success'))
+        <div class="alert alert-success">{{ session()->get('success') }}</div>
+    @endif
+    @if (session()->has('fail'))
+        <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+    @endif
+
+    <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -29,7 +40,6 @@
             <th>Price</th>
             <th>Action</th>
         </tr>
-    
         
         @foreach ($products as $item)
             <tr>
@@ -46,11 +56,12 @@
                 </td>
                 <td>{{ $item->stock }}</td>
                 <td>{{ $item->harga }}</td>
-                <td><a href="/admin/products/{{ $item->id }}"><button>Edit</button></a></td>
+                <td><a href="/admin/products/{{ $item->id }}"><button class="btn btn-dark">Edit</button></a></td>
             </tr>
         @endforeach
-        
     </table>
-    </div>
+
+    <div style="height: 2em"></div>
+</div>
     
 @endsection

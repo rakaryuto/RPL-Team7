@@ -1,59 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('style.css');
 
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: #F1EEE9;
-}
-h2{
-    font-size: 70px;
-}
-
-h3{
-    font-size: 50px;
-}   
-
-p{
-    letter-spacing: 0.1rem;
+p {
     font-size: 18px;
 }
 
 
-/* Navigation Bar */
-
-header{
-    height: 15vh;
-}
-
-.navbar{   
-    margin : 10px 0px;
-}
-
-.nav-right .navbar-nav .nav-item{
-    margin: 0px 30px;
-}
-
-.nav-right .navbar-nav .nav-item a{
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    color: #001;
-}
-
-
-.nav-left .navbar-nav .nav-item{
-    margin: 0px 40px;
-}
-
-.nav-left .navbar-nav .nav-item a{
-    letter-spacing: 0.1em;
-    color: #001;
-    font-weight: 600;
-}
-
 /* Landing Page */
-#landing{
+#landing {
     height: 75vh;
 }
 
@@ -61,39 +15,60 @@ header{
     margin-bottom: 10px;
 }
 
-.accordion-heading{
+.accordion-heading {
     display: flex;
     width: 100%;
     align-items: center;
 }
 
-.accordion-heading img{
+.accordion-heading img {
     width: 3%;
 }
 
-.accordion-heading h5{
+.accordion-heading h5 {
     margin-left: 40%;
     margin-top: 10px;
 }
 
+.product-spect-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.product-spect-price {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+}
 
+.product-price {
+    width: 60%;
+}
 
+.productsum-button {
+    width: 80%;
+}
 
-@media screen and (max-width:992px) {
+.productsum-button .amount {
+    width: 100%;
+    border: #001;
+    border-style: solid;
+    border-width: 2px;
+}
 
-    h2 {
-        font-size: 50px;
-    }
+.productsum-button .amount .button {
+    justify-content: center;
+    align-items: center;
+}
 
-    h3{
-        font-size: 30px;
-    }
+.payment {
+    height: 100vh;
+}
 
-    p{
-        font-size: 14px;
-        letter-spacing: 0.1em;
-    }
-
-    
+.total-bar {
+    position: relative;
+    width: 20%;
+    left: 76%;
+    margin-top: 20%;
 }
