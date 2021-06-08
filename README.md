@@ -1,7 +1,7 @@
 # RPL Tim 7
 
 # Kopikimo
-[Kopikimo](https://github.com/rakaryuto/RPL-Team7/blob/master/public/asset/logo-brand.svg)
+![Kopikimo](https://github.com/rakaryuto/RPL-Team7/blob/master/public/asset/logo-brand.svg)
 
 ## Paralel 1
 
