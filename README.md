@@ -55,8 +55,8 @@
 ### Screenshot sistem
 ### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
 
-##Testing (Test cases)
-###Positive Cases
-###Negative Cases
+## Testing (Test cases)
+### Positive Cases
+### Negative Cases
 
-##Saran untuk pengembangan selanjutnya
+## Saran untuk pengembangan selanjutnya
