@@ -53,7 +53,7 @@
 
 ## Hasil implementasi
 ### Screenshot sistem
-[PC](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot%20(297).png)
+![PC](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot%20(297).png)
 ### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
 
 ## Testing (Test cases)
