@@ -40,9 +40,9 @@
 - Localhost: Apache
 
 ### Hardware
-- RAM: 8GB
-- CPU
-- 
+- Macbook
+- Asus Laptop
+- Acer Aspire 3
 
 ### Tech Stack
 - Web Hosting: Heroku
@@ -83,6 +83,11 @@
 
 ## Testing (Test cases)
 ### Positive Cases
+- Penjual bisa mengetahui lebih cepat pesanan yang ada
+- Pembeli tidak perlu menanyakan stok barang dan menu karena sudah tertera di website
+- Pemesanan produk antar wilayah menjadi lebih mudah
+
 ### Negative Cases
+- Akan kalah saing oleh aplikasi ojek online jika pemesan memiliki lokasi yang bisa dijangkau oleh ojek online tersebut
 
 ## Saran untuk pengembangan selanjutnya
