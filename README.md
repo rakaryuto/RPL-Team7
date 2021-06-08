@@ -1,4 +1,4 @@
-# RPL Tim 7 | [Kopikimo](http://fathomless-fortress-50783.herokuapp.com)
+# RPL Tim 7
 
 ## Paralel 1
 
@@ -43,3 +43,20 @@
 ### Tech Stack
 
 ## Hasil dan Pembahasan
+### Use case diagram
+### Activity diagram
+### Class diagram
+### Entity Relationship Diagram
+### Arsitektur sistem
+### Fungsi utama yang dikembangkan
+### Fungsi CRUD
+
+## Hasil implementasi
+### Screenshot sistem
+### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
+
+##Testing (Test cases)
+###Positive Cases
+###Negative Cases
+
+##Saran untuk pengembangan selanjutnya
