@@ -57,6 +57,7 @@
 ![Frame 3](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Frame%203.png)
 ![Frame 4](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Frame%204.png)
 ### Class diagram
+![Class Diagram](https://github.com/rakaryuto/RPL-Team7/blob/master/images/classDiagram.jpg)
 ### Entity Relationship Diagram
 ![ERD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/messageImage_1620012973058.jpg)
 ### Arsitektur sistem
