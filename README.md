@@ -54,6 +54,8 @@
 ### Use case diagram
 ![UCD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Untitled%20Diagram-Page-1%20(3).png)
 ### Activity diagram
+![Frame 3](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Frame%203.png)
+![Frame 4](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Frame%204.png)
 ### Class diagram
 ### Entity Relationship Diagram
 ![ERD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/messageImage_1620012973058.jpg)
