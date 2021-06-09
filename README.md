@@ -41,7 +41,7 @@
 
 ### Hardware
 - Macbook
-- Asus Laptop
+- Asus X550ZE
 - Acer Aspire 3
 
 ### Tech Stack
@@ -59,6 +59,17 @@
 ![ERD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/messageImage_1620012973058.jpg)
 ### Arsitektur sistem
 ### Fungsi utama yang dikembangkan
+- Memesan produk 
+- Menambahkan jumlah produk 
+- Memasukan produk ke dalam cart 
+- Membeli langsung produk 
+- Mengatur spesifikasi produk
+- Menghapus produk dari cart 
+- Menghitung jumlah harga yang harus dibayar
+- Memasukan data diri dan alamat 
+- Memasukan bukti pembayaran 
+- Melakukan pembayaran
+
 ### Fungsi CRUD
 | User | Create | Read | Update | Delete |
 | ---- | ------ | ---- | ------ | ------ |
@@ -93,3 +104,7 @@
 
 ## Saran untuk pengembangan selanjutnya
 - Sebaiknya dikembangkan lebih baik, lebih matang ,dan lebih rapi lagi supaya pembeli dan penjual akan nyaman dengan eksistensi website Kopikimo.
+- Pengembangan web dimulai degnan membuat design system sehingga memudahkan untuk pengembangan frontend. 
+- Pengembangan web dimulai lebih awal agar memiliki banyak waktu untuk mengembangkan fitur yang lainnya. 
+- Pengembangan web dengan memperhatikan spesifikasi end user 
+- Menggunakan akses secure
