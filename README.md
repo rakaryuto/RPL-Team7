@@ -61,6 +61,7 @@
 ### Entity Relationship Diagram
 ![ERD](https://github.com/rakaryuto/RPL-Team7/blob/master/images/messageImage_1620012973058.jpg)
 ### Arsitektur sistem
+![System Architecture](https://github.com/rakaryuto/RPL-Team7/blob/master/images/architecture%20(1).jpg)
 ### Fungsi utama yang dikembangkan
 - Memesan produk 
 - Menambahkan jumlah produk 
