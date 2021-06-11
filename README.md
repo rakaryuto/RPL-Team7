@@ -95,6 +95,7 @@
 ![PC](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot%20(297).png)
 ![Smartphone](https://github.com/rakaryuto/RPL-Team7/blob/master/images/Screenshot_2021-06-07-11-08-46-545_com.android.chrome.jpg)
 ### [Link aplikasi](http://fathomless-fortress-50783.herokuapp.com)
+### [Link admin page](http://fathomless-fortress-50783.herokuapp.com/admin)
 
 ## Testing (Test cases)
 
